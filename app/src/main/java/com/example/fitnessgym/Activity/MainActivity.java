@@ -1,8 +1,10 @@
-package com.example.fitnessgym;
+package com.example.fitnessgym.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.fitnessgym.R;
 
 public class MainActivity extends AppCompatActivity {
 

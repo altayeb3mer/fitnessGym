@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_text_size_h">16sp</dimen>
-    <dimen name="main_text_size">10sp</dimen>
+    <dimen name="headLine">30sp</dimen>
+    <dimen name="title">22sp</dimen>
+    <dimen name="subHeader">18sp</dimen>
+    <dimen name="body2">16sp</dimen>
+    <dimen name="body1">10sp</dimen>
+    <dimen name="caption">10sp</dimen>
 </resources>
