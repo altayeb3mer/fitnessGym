@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.45"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:src="@drawable/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/title"
+                    android:text="عنوان تعريفي"
+                    android:textColor="@color/txtPrimary"/>
+                <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin2"
+                android:textStyle="bold"
+                android:textSize="@dimen/body1"
+                android:text="عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي"
+                android:textColor="@color/txtSecondary"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.55">
+            <ImageView
+                android:src="@drawable/img_intro_sample"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/splashLogoMargin"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

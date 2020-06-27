@@ -6,4 +6,6 @@
     <dimen name="body2">12sp</dimen>
     <dimen name="body1">10sp</dimen>
     <dimen name="caption">9sp</dimen>
+
+    <dimen name="splashLogoMargin">80dp</dimen>
 </resources>
