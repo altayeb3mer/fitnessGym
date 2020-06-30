@@ -9,6 +9,8 @@
     <color name="txtPrimary">#DE000000</color>
     <color name="txtSecondary">#99000000</color>
 
+    <color name="txtPrimaryWhite">#DEFFFFFF</color>
+    <color name="txtSecondaryWhite">#99FFFFFF</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nHeaderHeight"
+    android:layoutDirection="rtl"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/n_header_img"
+            />
+        <TextView
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="يسرا بت الباشا"
+            android:textColor="@color/txtPrimaryWhite"
+            android:textSize="@dimen/body2"/>
+        <TextView
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+249123456789"
+            android:textColor="@color/txtPrimaryWhite"
+            android:textSize="@dimen/caption"
+            android:textDirection="ltr"/>
+    </LinearLayout>
+
+</RelativeLayout>

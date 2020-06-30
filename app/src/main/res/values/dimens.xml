@@ -16,5 +16,6 @@
     <dimen name="margin4">20dp</dimen>
     <dimen name="margin5">30dp</dimen>
 
+    <dimen name="nHeaderHeight">210dp</dimen>
 
 </resources>
