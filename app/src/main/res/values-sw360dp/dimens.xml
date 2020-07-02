@@ -9,4 +9,7 @@
 
     <dimen name="splashLogoMargin">80dp</dimen>
     <dimen name="nHeaderHeight">190dp</dimen>
+
+
+    <dimen name="sliderImgHeight">170dp</dimen>
 </resources>

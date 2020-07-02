@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
     <include layout="@layout/public_toolbar"
         android:id="@+id/toolbar"/>
-        <androidx.viewpager.widget.ViewPager
+        <com.example.fitnessgym.Utils.CustomViewPager
             android:layoutDirection="rtl"
             android:id="@+id/viewpager"
             android:layout_width="match_parent"

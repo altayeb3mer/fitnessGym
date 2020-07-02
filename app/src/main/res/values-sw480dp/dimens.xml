@@ -11,4 +11,6 @@
 
     <dimen name="nHeaderHeight">210dp</dimen>
 
+    <dimen name="sliderImgHeight">190dp</dimen>
+
 </resources>

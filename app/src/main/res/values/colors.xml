@@ -5,6 +5,7 @@
     <color name="colorAccent">#4DB947</color>
     <color name="colorBg">#EEEEEE</color>
 
+    <color name="slideBgTrans">#80060B21</color>
 
     <color name="txtPrimary">#DE000000</color>
     <color name="txtSecondary">#99000000</color>

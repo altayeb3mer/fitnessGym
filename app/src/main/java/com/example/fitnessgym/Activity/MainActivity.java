@@ -13,11 +13,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.fitnessgym.Fragment.FoodFragment;
 import com.example.fitnessgym.Fragment.MainFragment;
 import com.example.fitnessgym.R;
+import com.example.fitnessgym.Utils.CustomViewPager;
 import com.example.fitnessgym.Utils.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -29,17 +31,26 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     //viewPager
-    private ViewPager viewPager;
+    private CustomViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_drawer);
         init();
+//        viewPager.setOnTouchListener(new View.OnTouchListener()
+//        {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event)
+//            {
+//                return true;
+//            }
+//        });
+
     }
 
     private void init() {
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager =  findViewById(R.id.viewpager);
         bottomNavigationView = findViewById(R.id.btn_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 //        imageButton_search = findViewById(R.id.image_btn_search);

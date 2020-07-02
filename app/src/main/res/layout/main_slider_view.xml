@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    >
+
+
+<ImageView
+    android:id="@+id/imgView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/img_slider_sample"
+    android:scaleType="centerCrop"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/slideBgTrans"
+        >
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/slider_btn_bg"
+        android:textColor="@android:color/white"
+        android:id="@+id/slider_btn"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:text="اشتراك"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin2"
+        android:textSize="@dimen/caption"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/slider_btn"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/margin4"
+        android:layout_marginLeft="@dimen/margin4" >
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ماالا تمشي النادي"
+            android:textSize="@dimen/headLine"
+            android:textColor="@android:color/white"
+            />
+        <TextView
+            android:id="@+id/textView_body"
+            android:layout_marginTop="@dimen/margin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اتمرن وانت في البيت بمساعدة مدربين حقيقين اتمرن وانت في البيت بمساعدة "
+            android:textSize="@dimen/body2"
+            android:textColor="@android:color/white"
+            android:maxLines="3"
+            />
+    </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
