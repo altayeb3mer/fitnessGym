@@ -6,6 +6,7 @@
     <color name="colorBg">#EEEEEE</color>
 
     <color name="slideBgTrans">#80060B21</color>
+    <color name="slideBgTrans40">#66060B21</color>
 
     <color name="txtPrimary">#DE000000</color>
     <color name="txtSecondary">#99000000</color>

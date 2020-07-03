@@ -77,6 +77,7 @@ public class WelcomeIntro extends AppCompatActivity {
                 int current = getItem(+1);
                 if (current < layouts.length) {
                     // move to next screen
+
                     viewPager.setCurrentItem(current);
                 } else {
                     launchHomeScreen();
@@ -95,7 +96,7 @@ public class WelcomeIntro extends AppCompatActivity {
 
 //        if (!SharedPrefManager.getInstance(getApplicationContext()).GetToken().equals("")){
         startActivity(new Intent(WelcomeIntro.this, MainActivity.class));
-        SharedPrefManager.getInstance(getApplicationContext()).PutOpenState(true);
+        SharedPrefManager.getInstance(getApplicationContext()).PutOpenState(false);
         finish();
 //        }else{
 //            startActivity(new Intent(WelcomeActivity.this, Login.class));

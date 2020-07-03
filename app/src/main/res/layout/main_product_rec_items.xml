@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin2"
+    android:layout_marginTop="@dimen/margin4"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_main_rec2_sample"/>
+            <LinearLayout
+                android:background="@color/slideBgTrans"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textSize="@dimen/caption"
+                    android:textStyle="bold"
+                    android:layout_marginRight="@dimen/margin5"
+                    android:textColor="@android:color/white"/>
+                <TextView
+                    android:layout_marginRight="@dimen/margin1"
+                    android:layout_marginLeft="@dimen/margin1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ج س/شهر"
+                    android:textSize="@dimen/caption"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حبل نط"
+                android:textSize="@dimen/body1"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin4"
+                android:textColor="@color/txtPrimary"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="75dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin4"
+                android:background="@drawable/intro_btn_bg"
+                android:layout_marginBottom="@dimen/margin2"
+                android:layout_marginTop="@dimen/margin2"
+                android:text="شراء"
+                android:textColor="@android:color/white"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
