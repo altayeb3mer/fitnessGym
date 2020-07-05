@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="headLine">22sp</dimen>
-    <dimen name="title">18sp</dimen>
-    <dimen name="subHeader">14sp</dimen>
-    <dimen name="body2">13sp</dimen>
-    <dimen name="body1">10sp</dimen>
-    <dimen name="caption">9sp</dimen>
+
 
     <dimen name="splashLogoMargin">85dp</dimen>
 

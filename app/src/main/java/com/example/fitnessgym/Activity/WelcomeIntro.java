@@ -72,9 +72,10 @@ public class WelcomeIntro extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // checking for last page
-                // if last page home screen will be launched
                 int current = getItem(+1);
+                if (current==layouts.length-1){
+                    textViewNext.setText("ابدأ");
+                }
                 if (current < layouts.length) {
                     // move to next screen
 
@@ -92,17 +93,10 @@ public class WelcomeIntro extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        //session.setFirstTimeLaunch(true);
 
-//        if (!SharedPrefManager.getInstance(getApplicationContext()).GetToken().equals("")){
-        startActivity(new Intent(WelcomeIntro.this, MainActivity.class));
-        SharedPrefManager.getInstance(getApplicationContext()).PutOpenState(false);
-        finish();
-//        }else{
-//            startActivity(new Intent(WelcomeActivity.this, Login.class));
-//            SharedPrefManager.getInstance(getApplicationContext()).PutOpenState(false);
-//            finish();
-//        }
+            startActivity(new Intent(WelcomeIntro.this, MainActivity.class));
+            SharedPrefManager.getInstance(getApplicationContext()).PutOpenState(false);
+            finish();
 
 
     }

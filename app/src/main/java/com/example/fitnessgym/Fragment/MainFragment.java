@@ -3,6 +3,7 @@ package com.example.fitnessgym.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -11,7 +12,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitnessgym.Adapter.AdapterClasses;
+import com.example.fitnessgym.Adapter.AdapterFood;
+import com.example.fitnessgym.Adapter.AdapterProduct;
 import com.example.fitnessgym.Adapter.SlideShow_adapter_main;
+import com.example.fitnessgym.Model.ModelClasses;
+import com.example.fitnessgym.Model.ModelFood;
+import com.example.fitnessgym.Model.ModelProduct;
 import com.example.fitnessgym.Model.ModelSliderImg;
 import com.example.fitnessgym.R;
 import com.google.android.material.card.MaterialCardView;
@@ -38,6 +45,7 @@ public class MainFragment extends Fragment {
     SlideShow_adapter_main slideShow_adapter_main;
     ArrayList<ModelSliderImg> modelSliderImgArrayList;
     private void init() {
+        recyclerViewClasses = view.findViewById(R.id.recyclerClasses);
         viewPager_slid_img = view.findViewById(R.id.viewpager_slid_img);
         modelSliderImgArrayList = new ArrayList<>();
         indicator = view.findViewById(R.id.indicator);
@@ -89,6 +97,9 @@ public class MainFragment extends Fragment {
 
     View view;
 
+    AdapterClasses adapterClasses;
+    ArrayList<ModelClasses> modelClassesArrayList;
+    RecyclerView recyclerViewClasses;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,7 +108,72 @@ public class MainFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_main, container, false);
 //        container2 = view.findViewById(R.id.container);
         init();
+        initAdapterClasses();
+        initAdapterProduct();
+        initAdapterFood();
         return view;
+    }
+
+
+    RecyclerView recyclerFood;
+    AdapterFood adapterFood;
+    ArrayList<ModelFood> modelFoodArrayList;
+    private void initAdapterFood() {
+        modelFoodArrayList = new ArrayList<>();
+        recyclerFood = view.findViewById(R.id.recyclerFood);
+        recyclerFood.setNestedScrollingEnabled(false);
+
+        for (int i = 0; i < 3; i++) {
+            ModelFood modelFood =new ModelFood();
+            modelFood.setCategory("لياقة بدنية");
+            modelFood.setTitle("10 اطعمة صحية لحياة افضل");
+            modelFood.setBody("10 اطعمة صحية لحياة افضل اطعمة صحية اطعمة صحية");
+            modelFoodArrayList.add(modelFood);
+        }
+        if (modelFoodArrayList.size()>0){
+            adapterFood = new AdapterFood(getActivity(),modelFoodArrayList);
+            recyclerFood.setAdapter(adapterFood);
+        }
+    }
+
+    ArrayList<ModelProduct> productArrayList;
+    AdapterProduct adapterProduct;
+    private void initAdapterProduct() {
+        productArrayList = new ArrayList<>();
+        recyclerProduct = view.findViewById(R.id.recyclerProduct);
+        recyclerProduct.setNestedScrollingEnabled(false);
+
+        for (int i = 0; i < 3; i++) {
+            ModelProduct modelProduct =new ModelProduct();
+            modelProduct.setPrice("500");
+            modelProduct.setTitle("حبل نط");
+            productArrayList.add(modelProduct);
+        }
+        if (productArrayList.size()>0){
+            adapterProduct = new AdapterProduct(getActivity(),productArrayList);
+            recyclerProduct.setAdapter(adapterProduct);
+        }
+
+    }
+
+    RecyclerView recyclerProduct;
+
+
+    private void initAdapterClasses() {
+        modelClassesArrayList = new ArrayList<>();
+        recyclerViewClasses.setNestedScrollingEnabled(false);
+        for (int i = 0; i < 3; i++) {
+            ModelClasses modelClasses =new ModelClasses();
+            modelClasses.setPrice("500");
+            modelClasses.setTitle("رقص افريقي");
+            modelClasses.setCouch("شجون بابكر");
+            modelClassesArrayList.add(modelClasses);
+        }
+        adapterClasses = new AdapterClasses(getActivity(),modelClassesArrayList);
+        if (modelClassesArrayList.size()>0){
+            recyclerViewClasses.setAdapter(adapterClasses);
+        }
+
     }
 
 
