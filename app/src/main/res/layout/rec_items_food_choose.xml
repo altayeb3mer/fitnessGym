@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin2"
+    android:layout_marginLeft="@dimen/margin4"
+    android:layoutDirection="rtl"
+    android:id="@+id/card_container">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/main_rec3_sample"/>
+
+            <LinearLayout
+                android:background="@color/slideBgTrans40"
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_width="95dp"
+                android:layout_height="20dp"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="لياقة بدنية"
+                    android:textColor="@color/txtPrimaryWhite"
+                    android:textSize="@dimen/caption"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 اطعمة صحية لحياة افضل"
+                android:textSize="@dimen/caption"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin4"
+                android:textColor="@color/txtPrimary"
+                android:maxLines="1"/>
+            <TextView
+                android:id="@+id/body"
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_marginRight="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin5"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اطعمة صحية لحياة افضل اطعمة .."
+                android:textSize="@dimen/caption2"
+                android:textStyle="bold"
+                android:textColor="@color/txtPrimary"
+                android:maxLines="1"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

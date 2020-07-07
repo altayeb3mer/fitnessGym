@@ -33,10 +33,11 @@
                     android:text="عنوان تعريفي"
                     android:textColor="@color/txtPrimary"/>
                 <TextView
-                android:layout_width="240dp"
+                    android:layout_marginRight="@dimen/margin5"
+                    android:layout_marginLeft="@dimen/margin5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin2"
-                android:textStyle="bold"
                 android:textSize="@dimen/body1"
                 android:text="عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي عنوان تعريفي"
                 android:textColor="@color/txtSecondary"/>

@@ -17,6 +17,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.fitnessgym.Fragment.FoodFragment;
+import com.example.fitnessgym.Fragment.FragmentClasses;
+import com.example.fitnessgym.Fragment.FragmentFree;
+import com.example.fitnessgym.Fragment.FragmentProduct;
 import com.example.fitnessgym.Fragment.MainFragment;
 import com.example.fitnessgym.R;
 import com.example.fitnessgym.Utils.CustomViewPager;
@@ -113,13 +116,22 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         mainFragment = new MainFragment();
         foodFragment = new FoodFragment();
+        fragmentProduct = new FragmentProduct();
+        fragmentClasses = new FragmentClasses();
+        fragmentFree = new FragmentFree();
 
         adapter.addFragment(mainFragment,"الرئيسية");
         adapter.addFragment(foodFragment,"تغزية ورجيم");
+        adapter.addFragment(fragmentProduct,"منتجات");
+        adapter.addFragment(fragmentClasses,"كلاسات");
+        adapter.addFragment(fragmentFree,"الصف المجاني");
         viewPager.setAdapter(adapter);
     }
 
 
+    FragmentFree fragmentFree;
+    FragmentClasses fragmentClasses;
+    FragmentProduct fragmentProduct;
     MainFragment mainFragment;
     FoodFragment foodFragment;
 
@@ -254,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             if (viewPager.getCurrentItem()==0){
                 super.onBackPressed();
             }else{
-                switchToFragment(1);
+                viewPager.setCurrentItem(0);
             }
         }
     }

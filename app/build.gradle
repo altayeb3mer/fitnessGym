@@ -37,5 +37,5 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.4@aar'
     implementation 'com.skyline.widget:round-corner-layout:1.0.1'
 
-    compile 'com.github.captain-miao:optroundcardview:1.0.0'
+    implementation 'com.github.captain-miao:optroundcardview:1.0.0'
 }

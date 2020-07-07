@@ -14,22 +14,20 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessgym.Activity.FoodDetails;
-import com.example.fitnessgym.Fragment.FoodFragment;
 import com.example.fitnessgym.Model.ModelFood;
-import com.example.fitnessgym.Model.ModelProduct;
 import com.example.fitnessgym.R;
 
 import java.util.ArrayList;
 
 
-public class AdapterFood extends RecyclerView.Adapter<AdapterFood.ViewHolder> {
+public class AdapterFoodOurChoose extends RecyclerView.Adapter<AdapterFoodOurChoose.ViewHolder> {
 
     ArrayList<ModelFood> modelFoodArrayList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Activity activity;
 
-    public AdapterFood(Activity activity, ArrayList<ModelFood> modelFoodArrayList) {
+    public AdapterFoodOurChoose(Activity activity, ArrayList<ModelFood> modelFoodArrayList) {
         this.mInflater = LayoutInflater.from(activity);
         this.modelFoodArrayList = modelFoodArrayList;
         this.activity = activity;
@@ -38,7 +36,7 @@ public class AdapterFood extends RecyclerView.Adapter<AdapterFood.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.main_food_rec_items, parent, false);
+        View view = mInflater.inflate(R.layout.rec_items_food_choose, parent, false);
 
 
 
