@@ -8,7 +8,7 @@
             android:icon="@drawable/ic_menu_account"
             />
         <item
-            android:id="@+id/nav_menu_my_sub"
+            android:id="@+id/nav_menu_my_profile"
             android:title="ملفي الشخصي"
             android:icon="@drawable/ic_menu_profile"
             />

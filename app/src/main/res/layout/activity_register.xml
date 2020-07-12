@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Login"
+    android:layoutDirection="rtl"
+    android:background="@color/colorBg">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="@drawable/ic_back_toolbar"
+        app:title="حساب جديد"
+        android:id="@+id/public_toolbar"
+        app:layout_collapseMode="pin"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        app:titleTextColor="@android:color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_below="@+id/public_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:background="@drawable/login_bg">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/body1"
+                android:text="تسجيل الدخول تسجيل الدخول تسجيل الدخول الدخو
+تسجيل الدخول تسجيل الدخول تسجيل الدخول الدخو
+تسجيل الدخول تسجيل الدختسجيل الدخول تسجيل الدخول تسجيل الدخول الدخو"
+                android:textColor="@color/white"
+                android:layout_margin="@dimen/margin4"/>
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="@dimen/margin4"
+                    android:layout_marginLeft="@dimen/margin4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_marginTop="@dimen/margin4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="اسم المستخدم"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_person"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="البريد الالكتروني"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_email"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="الهاتف"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_phone"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="العنوان"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_place_map"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="كلمة المرور"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_key"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="تاكيد كلمة المرور"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_key"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_marginTop="@dimen/margin4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="left"
+                        android:background="@drawable/login_btn_bg"
+                        android:textSize="@dimen/body1"
+                        android:text="تسجيل دخول"
+                        android:textColor="@color/white"
+                        />
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/margin4"
+                        android:id="@+id/bottomLay"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="لديك حساب من قبل ؟"
+                            android:textColor="@color/txtPrimary"
+                            android:textSize="@dimen/body1"/>
+                        <TextView
+                            android:layout_marginLeft="@dimen/margin1"
+                            android:layout_marginRight="@dimen/margin1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تسجيل دخول"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/body1"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

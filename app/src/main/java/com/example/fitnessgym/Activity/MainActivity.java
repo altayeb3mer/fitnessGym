@@ -167,6 +167,11 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
+            case R.id.nav_menu_my_profile: {
+                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
         }
 //
 //
