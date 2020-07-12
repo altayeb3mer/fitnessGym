@@ -9,14 +9,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 
-import com.example.fitnessgym.Fragment.FoodFragment;
+import com.example.fitnessgym.Fragment.FragmentFood;
 import com.example.fitnessgym.Fragment.FragmentClasses;
 import com.example.fitnessgym.Fragment.FragmentFree;
 import com.example.fitnessgym.Fragment.FragmentProduct;
@@ -115,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         mainFragment = new MainFragment();
-        foodFragment = new FoodFragment();
+        foodFragment = new FragmentFood();
         fragmentProduct = new FragmentProduct();
         fragmentClasses = new FragmentClasses();
         fragmentFree = new FragmentFree();
@@ -133,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     FragmentClasses fragmentClasses;
     FragmentProduct fragmentProduct;
     MainFragment mainFragment;
-    FoodFragment foodFragment;
+    FragmentFood foodFragment;
 
     private void SetNavigationItemSelected(int id){
         bottomNavigationView.getMenu().findItem(id).setChecked(true);

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin2"
+    android:layout_marginLeft="@dimen/margin4"
+    android:layoutDirection="rtl"
+    android:id="@+id/card_container"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rec1_sample"/>
+            <LinearLayout
+                android:background="@color/slideBgTrans"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textSize="@dimen/caption"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:textColor="@android:color/white"/>
+                <TextView
+                    android:layout_marginRight="@dimen/margin1"
+                    android:layout_marginLeft="@dimen/margin1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ج س/شهر"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="رقص افريقي"
+                android:textSize="@dimen/caption"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin2"
+                android:textColor="@color/txtPrimary"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="@dimen/margin2"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/account_tie"
+                    />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/couch"
+                    android:layout_marginLeft="@dimen/margin1"
+                    android:layout_marginRight="@dimen/margin1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="المدرب : شجون بابكر"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@color/txtPrimary"
+                    android:maxLines="1"/>
+            </LinearLayout>
+   
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

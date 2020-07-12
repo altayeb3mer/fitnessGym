@@ -18,7 +18,7 @@ import com.example.fitnessgym.R;
 import java.util.ArrayList;
 
 
-public class FoodFragment extends Fragment {
+public class FragmentFood extends Fragment {
 
     //spinner
     Spinner spinnerCategory;
@@ -26,7 +26,7 @@ public class FoodFragment extends Fragment {
     ArrayAdapter<String> adapter1;
     View view;
 
-    public FoodFragment() {
+    public FragmentFood() {
         // Required empty public constructor
     }
 

@@ -17,7 +17,7 @@
         android:id="@+id/toolbar">
         <androidx.appcompat.widget.Toolbar
             app:navigationIcon="@drawable/ic_back_toolbar"
-            app:title="تغذية ورجيم"
+            app:title="الصف المجاني"
             android:id="@+id/public_toolbar"
             app:layout_collapseMode="pin"
             android:layout_width="match_parent"
@@ -34,16 +34,24 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <com.potyvideo.library.AndExoPlayerView
+                android:id="@+id/player"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:andexo_full_screen="true"
+                app:andexo_play_when_ready="true" />
 
             <LinearLayout
+                android:layout_below="@+id/player"
                 android:id="@+id/lay1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/margin2"
-                android:layout_marginLeft="@dimen/margin2"
-                android:layout_marginRight="@dimen/margin2">
+                android:orientation="vertical">
+
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center_vertical">
@@ -63,21 +71,20 @@
                         android:text="التاريخ : 18-6-2020"
                         tools:ignore="RtlHardcoded" />
                 </RelativeLayout>
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="130dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/paellamain"/>
                 <TextView
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subHeader"
                     android:textColor="@color/txtPrimary"
                     android:text="لماذا يجب ان نمارس جميعا الرياضة ؟"/>
                 <TextView
-                    android:layout_marginTop="@dimen/margin1"
+                    android:layout_marginTop="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/body1"
@@ -108,34 +115,45 @@
 
                 <TextView
                     android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
                     android:layout_marginTop="@dimen/margin4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subHeader"
                     android:textColor="@color/txtPrimary"
-                    android:text="اخترنا لك ايضا"/>
+                    android:text="اخترنا لك ايضا"
+                    />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="@dimen/margin1"
-                    android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/lay1"
-                    android:id="@+id/recyclerFood"
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margin2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/rec_items_food_choose"
-                    tools:itemCount="5"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="1"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/lay1"
+                        android:id="@+id/recyclerFree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/free_rec_item"
+                        tools:itemCount="5"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="1"
 
-                    android:layoutAnimation="@anim/layout_animation"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                    />
+                        android:orientation="vertical"
+                        android:layoutAnimation="@anim/layout_animation"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        />
+                </LinearLayout>
+
+
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_below="@+id/recyclerFood"/>
-
             </LinearLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

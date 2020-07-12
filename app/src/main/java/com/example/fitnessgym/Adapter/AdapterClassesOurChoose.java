@@ -20,14 +20,14 @@ import com.example.fitnessgym.R;
 import java.util.ArrayList;
 
 
-public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHolder> {
+public class AdapterClassesOurChoose extends RecyclerView.Adapter<AdapterClassesOurChoose.ViewHolder> {
 
     ArrayList<ModelClasses> modelClassesArrayList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Activity activity;
 
-    public AdapterClasses(Activity activity, ArrayList<ModelClasses> modelClasses) {
+    public AdapterClassesOurChoose(Activity activity, ArrayList<ModelClasses> modelClasses) {
         this.mInflater = LayoutInflater.from(activity);
         this.modelClassesArrayList = modelClasses;
         this.activity = activity;
@@ -36,7 +36,7 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.main_class_rec_items, parent, false);
+        View view = mInflater.inflate(R.layout.main_class_rec_items_our_choose, parent, false);
 
 
         return new ViewHolder(view);

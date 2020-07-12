@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,29 +15,31 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessgym.Activity.ClassDetails;
+import com.example.fitnessgym.Activity.FreeClassDetails;
 import com.example.fitnessgym.Model.ModelClasses;
+import com.example.fitnessgym.Model.ModelFree;
 import com.example.fitnessgym.R;
 
 import java.util.ArrayList;
 
 
-public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHolder> {
+public class AdapterFree extends RecyclerView.Adapter<AdapterFree.ViewHolder> {
 
-    ArrayList<ModelClasses> modelClassesArrayList;
+    ArrayList<ModelFree> modelFreeArrayList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Activity activity;
 
-    public AdapterClasses(Activity activity, ArrayList<ModelClasses> modelClasses) {
+    public AdapterFree(Activity activity, ArrayList<ModelFree> modelFrees) {
         this.mInflater = LayoutInflater.from(activity);
-        this.modelClassesArrayList = modelClasses;
+        this.modelFreeArrayList = modelFrees;
         this.activity = activity;
     }
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.main_class_rec_items, parent, false);
+        View view = mInflater.inflate(R.layout.free_rec_item, parent, false);
 
 
         return new ViewHolder(view);
@@ -45,18 +48,19 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final ModelClasses item = modelClassesArrayList.get(position);
+        final ModelFree item = modelFreeArrayList.get(position);
 
-        holder.textView_price.setText(item.getPrice());
         holder.textView_title.setText(item.getTitle());
         holder.textView_couch.setText("المدرب : " + " " + item.getCouch());
+        holder.textView_category.setText("الصف : "+" "+item.getCouch());
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
-        holder.cardView_container.setOnClickListener(new View.OnClickListener() {
+        holder.lay_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(activity, ClassDetails.class));
+                activity.startActivity(new Intent(activity, FreeClassDetails.class));
+//                Toast.makeText(activity, "تمارين زومبا", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -64,7 +68,7 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
 
     @Override
     public int getItemCount() {
-        return modelClassesArrayList.size();
+        return modelFreeArrayList.size();
     }
 
     // allows clicks events to be caught
@@ -79,16 +83,16 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        CardView cardView_container;
-        TextView textView_title, textView_price, textView_couch;
+        RelativeLayout lay_container;
+        TextView textView_title, textView_couch, textView_category;
         ImageView imageView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            cardView_container = itemView.findViewById(R.id.card_container);
-            textView_price = itemView.findViewById(R.id.price);
+            lay_container = itemView.findViewById(R.id.container_lay);
             textView_title = itemView.findViewById(R.id.title);
             textView_couch = itemView.findViewById(R.id.couch);
+            textView_category = itemView.findViewById(R.id.category);
             imageView = itemView.findViewById(R.id.img);
 
             itemView.setOnClickListener(this);

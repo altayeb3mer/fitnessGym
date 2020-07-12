@@ -3,15 +3,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.MainFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.MainFragment"
+    android:layoutDirection="rtl"
+    android:background="@color/colorBg">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+
+    <LinearLayout
+        android:id="@+id/lay_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product"
-        />
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/margin2"
+        android:layout_marginLeft="@dimen/margin2"
+        android:layout_marginRight="@dimen/margin2"
+        android:gravity="center_vertical">
+        <Spinner
+            android:id="@+id/spinner"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_horizontal"
+            />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_down"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_spinner">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginRight="@dimen/margin2"
+            android:layout_marginLeft="@dimen/margin2">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/main_product_rec_items"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+
+                android:layoutAnimation="@anim/layout_animation"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
 </RelativeLayout>

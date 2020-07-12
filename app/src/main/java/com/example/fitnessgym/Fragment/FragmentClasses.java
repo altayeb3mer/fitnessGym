@@ -3,56 +3,98 @@ package com.example.fitnessgym.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.example.fitnessgym.Adapter.AdapterClasses;
+import com.example.fitnessgym.Adapter.AdapterFood;
+import com.example.fitnessgym.Model.ModelClasses;
+import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentClasses#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class FragmentClasses extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+public class FragmentClasses extends Fragment {
+
 
     public FragmentClasses() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentClasses.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentClasses newInstance(String param1, String param2) {
-        FragmentClasses fragment = new FragmentClasses();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    //spinner
+    Spinner spinnerCategory;
+    String[] arrayCat;
+    ArrayAdapter<String> adapter1;
+    View view;
+    private void init() {
+        //init spinner
+        spinnerCategory = view.findViewById(R.id.spinner);
+        arrayCat = new String[]{"كل الكلاسات", "زومبا", "ايربكس", "يوغا", "رقص افريقي"};
+        adapter1 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, arrayCat) {
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View v = null;
+                v = super.getDropDownView(position, null, parent);
+                // If this is the selected item position
+//                if (position == 0) {
+//                    v.setBackgroundColor(Color.WHITE);
+//                } else {
+//                    if (position % 2 == 0) {
+//                        v.setBackgroundColor(getResources().getColor(R.color.spinner_bg_design1));
+//                    } else {
+//                        v.setBackgroundColor(getResources().getColor(R.color.spinner_bg_design2));
+//                    }
+//
+//                }
+                return v;
+            }
+        };
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategory.setAdapter(adapter1);
+        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == 0) {
+//                    s_month = "";
+//                } else {
+//                    s_month = array_month[position];
+//                }
+            }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        //recycler
+        initAdapterClasses();
+
+    }
+    RecyclerView recyclerClasses;
+    AdapterClasses adapterClasses;
+    ArrayList<ModelClasses> modelFoodArrayList;
+    private void initAdapterClasses() {
+        modelFoodArrayList = new ArrayList<>();
+        recyclerClasses = view.findViewById(R.id.recyclerFood);
+        recyclerClasses.setNestedScrollingEnabled(false);
+
+        for (int i = 0; i < 10; i++) {
+            ModelClasses modelClasses =new ModelClasses();
+            modelClasses.setPrice("500");
+            modelClasses.setTitle("رقص افريقي");
+            modelClasses.setCouch("شجون بابكر");
+            modelFoodArrayList.add(modelClasses);
+        }
+        if (modelFoodArrayList.size()>0){
+            adapterClasses = new AdapterClasses(getActivity(),modelFoodArrayList);
+            recyclerClasses.setAdapter(adapterClasses);
         }
     }
 
@@ -60,6 +102,8 @@ public class FragmentClasses extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_classes, container, false);
+        view = inflater.inflate(R.layout.fragment_classes, container, false);
+        init();
+        return view;
     }
 }

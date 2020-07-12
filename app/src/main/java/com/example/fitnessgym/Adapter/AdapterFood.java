@@ -14,9 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessgym.Activity.FoodDetails;
-import com.example.fitnessgym.Fragment.FoodFragment;
 import com.example.fitnessgym.Model.ModelFood;
-import com.example.fitnessgym.Model.ModelProduct;
 import com.example.fitnessgym.R;
 
 import java.util.ArrayList;

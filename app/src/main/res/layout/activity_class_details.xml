@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FoodDetails"
+    android:layoutDirection="rtl"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorBg">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layoutDirection="rtl"
+        app:cardCornerRadius="0dp"
+        android:id="@+id/toolbar">
+        <androidx.appcompat.widget.Toolbar
+            app:navigationIcon="@drawable/ic_back_toolbar"
+            app:title="تفاصيل الكلاس"
+            android:id="@+id/public_toolbar"
+            app:layout_collapseMode="pin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:titleTextColor="@android:color/white"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rec1_sample"/>
+            <LinearLayout
+                android:layout_below="@+id/img"
+                android:id="@+id/lay1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subHeader"
+                    android:textColor="@color/txtPrimary"
+                    android:text="اسم الكلاس : رقص افريقي"
+                    android:layout_marginTop="@dimen/margin4"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginTop="@dimen/margin3">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/margin2">
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسعار"
+                            android:textSize="@dimen/body1"
+                            android:textColor="@color/txtPrimary"/>
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/margin1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="0.5"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+                                <TextView
+                                    android:textStyle="bold"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="0.35"
+                                    android:layout_height="wrap_content"
+                                    android:text="الشهر :"
+                                    android:textSize="@dimen/caption"
+                                    android:textColor="@color/txtPrimary"/>
+                                <TextView
+                                android:textStyle="bold"
+                                android:layout_width="0dp"
+                                android:layout_weight="0.65"
+                                android:layout_height="wrap_content"
+                                android:text="500 ج س"
+                                android:textSize="@dimen/caption"
+                                android:textColor="@color/colorAccent"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="0.5"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+                                <TextView
+                                    android:textStyle="bold"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="0.35"
+                                    android:layout_height="wrap_content"
+                                    android:text="اليوم :"
+                                    android:textSize="@dimen/caption"
+                                    android:textColor="@color/txtPrimary"/>
+                                <TextView
+                                    android:textStyle="bold"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="0.65"
+                                    android:layout_height="wrap_content"
+                                    android:text="50 ج س"
+                                    android:textSize="@dimen/caption"
+                                    android:textColor="@color/colorAccent"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginTop="@dimen/margin2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/margin2">
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="الايام"
+                            android:textSize="@dimen/body1"
+                            android:textColor="@color/txtPrimary"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/margin1"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="الاحد - الثلاثاء - الخميس"
+                            android:textSize="@dimen/caption"
+                            android:textColor="@color/colorAccent"/>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginTop="@dimen/margin2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/margin2">
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="الزمن"
+                            android:textSize="@dimen/body1"
+                            android:textColor="@color/txtPrimary"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/margin1"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="02:00:00"
+                            android:textSize="@dimen/caption"
+                            android:textColor="@color/colorAccent"/>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginTop="@dimen/margin2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_margin="@dimen/margin2">
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="المدرب"
+                            android:textSize="@dimen/body1"
+                            android:textColor="@color/txtPrimary"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/margin1"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="شجون بابكر"
+                            android:textSize="@dimen/caption"
+                            android:textColor="@color/colorAccent"/>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/margin4"
+                    android:layout_marginLeft="@dimen/margin4"
+                    android:background="@drawable/intro_btn_bg"
+                    android:layout_marginBottom="@dimen/margin2"
+                    android:layout_marginTop="@dimen/margin3"
+                    android:text="انضم الان"
+                    android:textColor="@android:color/white"
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subHeader"
+                    android:textColor="@color/txtPrimary"
+                    android:text="اخترنا لك ايضا"
+                    android:layout_marginTop="@dimen/margin4"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/lay1"
+                    android:id="@+id/recyclerFood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/main_class_rec_items_our_choose"
+                    tools:itemCount="5"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="1"
+                    android:orientation="horizontal"
+
+                    android:layoutAnimation="@anim/layout_animation"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/recyclerFood"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
