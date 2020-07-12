@@ -12,6 +12,8 @@
 
     <dimen name="splashLogoMargin">95dp</dimen>
 
+    <dimen name="loginHeaderHeight">200dp</dimen>
+
     <dimen name="margin1">5dp</dimen>
     <dimen name="margin2">10dp</dimen>
     <dimen name="margin3">15dp</dimen>

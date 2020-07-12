@@ -6,4 +6,5 @@
     <dimen name="nHeaderHeight">180dp</dimen>
 
     <dimen name="sliderImgHeight">150dp</dimen>
+    <dimen name="loginHeaderHeight">170dp</dimen>
 </resources>

@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -160,15 +161,16 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                 switchToFragment(5);
                 break;
             }
+            //navigation menu
+            case R.id.nav_menu_login: {
+                startActivity(new Intent(getApplicationContext(),Login.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
         }
 //
 //
-//            //navigation menu
-//            case R.id.nav_menu_main: {
-//                switchToFragment(1);
-//                drawerLayout.closeDrawer(GravityCompat.START);
-//                break;
-//            }
+
 //            case R.id.nav_menu_news_paper: {
 //                startActivity(new Intent(this,NewsPapers.class));
 //                drawerLayout.closeDrawer(GravityCompat.START);
