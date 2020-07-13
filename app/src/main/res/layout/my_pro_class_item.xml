@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layoutDirection="rtl"
+    android:gravity="center">
+    <RelativeLayout
+        android:layout_above="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center">
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin4"
+        android:layout_marginLeft="@dimen/margin2"
+        android:layout_marginRight="@dimen/margin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="اسم الكلاس"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="بداية الكلاس"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="الايام"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="المواعيد"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="الفترة الزمنية"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="نوع الاشتراك"
+                android:textColor="@color/txtPrimary"
+                android:textSize="@dimen/subHeader"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="اسم الكلاس"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/subHeader"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:background="@drawable/login_btn_bg"
+        android:textSize="@dimen/caption"
+        android:text="التوجة للكلاس"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        tools:ignore="RtlHardcoded"
+        android:layout_margin="@dimen/margin4"/>
+
+    </RelativeLayout>
+    <view
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/black"
+        android:id="@+id/line"/>
+</RelativeLayout>
