@@ -241,6 +241,7 @@
                     android:layout_marginTop="@dimen/margin3"
                     android:text="انضم الان"
                     android:textColor="@android:color/white"
+                    android:gravity="center"
                     />
 
                 <TextView
