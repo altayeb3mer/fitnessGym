@@ -4,12 +4,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.FragmentTabClass"
-    android:gravity="center">
+    android:gravity="center"
+    android:layoutDirection="rtl">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Profile My videos" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginRight="@dimen/margin2"
+            android:layout_marginLeft="@dimen/margin2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="رفع فيديو"
+                android:textSize="@dimen/title"
+                android:textColor="@color/txtPrimary"
+                android:layout_marginTop="@dimen/margin5"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="اختر ملف الفيديو"
+                android:textSize="@dimen/subHeader"
+                android:textColor="@color/txtPrimary"
+                android:layout_marginTop="@dimen/margin4"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/margin2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/add_video_lay_bg">
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/intro_btn_bg">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="اختر فيديو"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/body1"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin1"
+                        android:layout_marginRight="@dimen/margin1"
+                        android:src="@drawable/ic_add_video"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="اختر الصف"
+                android:textSize="@dimen/subHeader"
+                android:textColor="@color/txtPrimary"
+                android:layout_marginTop="@dimen/margin4"/>
+
+            <RadioGroup
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_marginLeft="@dimen/margin1"
+                android:layout_marginRight="@dimen/margin1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="زومبا | السبت - الاثنين - الاربعاء | 02:00:00"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@color/txtSecondary"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ايربكس | السبت - الاثنين - الاربعاء | 02:00:00"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@color/txtSecondary"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="اختر نوع الدفع"
+                android:textSize="@dimen/subHeader"
+                android:textColor="@color/txtPrimary"
+                android:layout_marginTop="@dimen/margin4"/>
+            <RadioGroup
+                android:layout_marginTop="@dimen/margin1"
+                android:layout_marginLeft="@dimen/margin1"
+                android:layout_marginRight="@dimen/margin1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مدفوع"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@color/txtSecondary"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مجاني"
+                    android:textSize="@dimen/caption"
+                    android:textColor="@color/txtSecondary"/>
+            </RadioGroup>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="@dimen/margin5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:background="@drawable/login_btn_bg"
+                android:textSize="@dimen/body1"
+                android:text="رفع الفيديو"
+                android:textColor="@color/white"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </RelativeLayout>

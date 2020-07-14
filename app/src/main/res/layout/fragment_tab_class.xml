@@ -7,17 +7,32 @@
     tools:context=".Fragment.FragmentTabClass"
     android:gravity="center">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFood"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/my_pro_class_item"
-        tools:itemCount="5"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="1"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/my_pro_class_item"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
 
-        android:layoutAnimation="@anim/layout_animation"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+                android:layoutAnimation="@anim/layout_animation"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 
 </RelativeLayout>
