@@ -6,10 +6,29 @@
     tools:context=".Fragment.FragmentTabClass"
     android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Profile Chats" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_soon"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الدردشات"
+            android:textSize="@dimen/headLine"
+            android:textColor="@color/txtPrimary"
+            android:layout_marginTop="@dimen/margin4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سيتم اضافة الميزة قريبا على الموقع"
+            android:textSize="@dimen/subHeader"
+            android:textColor="@color/txtSecondary"
+            android:layout_marginTop="@dimen/margin2"/>
+    </LinearLayout>
 
 </RelativeLayout>

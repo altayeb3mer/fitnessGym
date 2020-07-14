@@ -7,6 +7,61 @@ public class ModelClasses {
     private String title;
     private String couch;
 
+    private String name;
+    private String startIn;
+    private String dates;
+    private String times;
+    private String duration;
+    private String subType;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStartIn() {
+        return startIn;
+    }
+
+    public void setStartIn(String startIn) {
+        this.startIn = startIn;
+    }
+
+    public String getDates() {
+        return dates;
+    }
+
+    public void setDates(String dates) {
+        this.dates = dates;
+    }
+
+    public String getTimes() {
+        return times;
+    }
+
+    public void setTimes(String times) {
+        this.times = times;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
+    }
+
     public String getId() {
         return id;
     }

@@ -6,10 +6,121 @@
     tools:context=".Fragment.FragmentTabClass"
     android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Profile My Profile" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_margin="@dimen/margin2">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/n_header_img"
+                android:layout_marginTop="@dimen/margin5"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin4">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="اسم المستخدم"
+                    android:text="هناء"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_person"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layoutDirection="rtl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="البريد الالكتروني"
+                    android:text="hanaa.rt.mag@gmail.com"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_email"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="الهاتف"
+                    android:text="+249123456789"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_phone"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded"
+                  />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="العنوان"
+                    android:text="بحري السامراب"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_place_map"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="كلمة المرور"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_key"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded"
+                    android:text="123456789"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="تاكيد كلمة المرور"
+                    android:textSize="@dimen/body1"
+                    android:drawableRight="@drawable/ic_key"
+                    android:drawablePadding="@dimen/margin1"
+                    tools:ignore="RtlHardcoded"
+                    android:text="123456789"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="@dimen/margin5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:background="@drawable/login_btn_bg"
+                android:textSize="@dimen/body1"
+                android:text="تعديل"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>
