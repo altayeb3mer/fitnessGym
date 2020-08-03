@@ -135,10 +135,13 @@ public class Register extends ToolbarClass {
 
                                                      //Save The Token Key In Prefrence
                                                      SharedPreferences.Editor editor = preferences.edit();
+                                                     editor.putString("id", jsonObject1.getString("id"));
                                                      editor.putString("us_name", jsonObject1.getString("us_name"));
                                                      editor.putString("mem_phone", jsonObject1.getString("mem_phone"));
                                                      editor.putString("mem_address", jsonObject1.getString("mem_address"));
                                                      editor.putString("mem_email", jsonObject1.getString("mem_email"));
+                                                     editor.putString("acc_type", jsonObject1.getString("acc_type"));
+
 
 
                                                      editor.apply();
