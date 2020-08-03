@@ -55,8 +55,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subHeader"
                     android:textColor="@color/txtPrimary"
-                    android:text="اسم الكلاس : رقص افريقي"
                     android:layout_marginTop="@dimen/margin4"
+                    android:id="@+id/class_name"
                     android:layout_marginLeft="@dimen/margin2"
                     android:layout_marginRight="@dimen/margin2"/>
 
@@ -102,6 +102,7 @@
                                 android:textStyle="bold"
                                 android:layout_width="0dp"
                                 android:layout_weight="0.65"
+                                    android:id="@+id/price_m"
                                 android:layout_height="wrap_content"
                                 android:text="500 ج س"
                                 android:textSize="@dimen/caption"
@@ -124,6 +125,7 @@
                                     android:textStyle="bold"
                                     android:layout_width="0dp"
                                     android:layout_weight="0.65"
+                                    android:id="@+id/price_d"
                                     android:layout_height="wrap_content"
                                     android:text="50 ج س"
                                     android:textSize="@dimen/caption"
@@ -158,6 +160,7 @@
                             android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/dates"
                             android:text="الاحد - الثلاثاء - الخميس"
                             android:textSize="@dimen/caption"
                             android:textColor="@color/colorAccent"/>
@@ -191,6 +194,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="02:00:00"
+                            android:id="@+id/duration"
                             android:textSize="@dimen/caption"
                             android:textColor="@color/colorAccent"/>
 
@@ -224,6 +228,7 @@
                             android:layout_height="wrap_content"
                             android:text="شجون بابكر"
                             android:textSize="@dimen/caption"
+                            android:id="@+id/couch"
                             android:textColor="@color/colorAccent"/>
 
 
@@ -261,7 +266,7 @@
                     android:layout_marginRight="@dimen/margin2"
                     android:layout_alignParentBottom="true"
                     android:layout_below="@+id/lay1"
-                    android:id="@+id/recyclerFood"
+                    android:id="@+id/recyclerClasses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/main_class_rec_items_our_choose"

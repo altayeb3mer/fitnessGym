@@ -4,19 +4,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import es.dmoral.toasty.Toasty;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.fitnessgym.Adapter.AdapterFood;
 import com.example.fitnessgym.Adapter.AdapterProduct;
+import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.Model.ModelProduct;
 import com.example.fitnessgym.R;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -28,26 +37,83 @@ public class FragmentProduct extends Fragment {
     ArrayAdapter<String> adapter1;
     View view;
 
-    RecyclerView recyclerProduct;
+    ArrayList<ModelProduct> productArrayList;
     AdapterProduct adapterProduct;
-    ArrayList<ModelProduct> modelFoodArrayList;
+    RecyclerView recyclerProduct;
+    public void initAdapterProduct() {
 
-    private void initAdapterProduct() {
-        modelFoodArrayList = new ArrayList<>();
-        recyclerProduct = view.findViewById(R.id.recyclerFood);
-        recyclerProduct.setNestedScrollingEnabled(false);
 
-        for (int i = 0; i < 10; i++) {
-            ModelProduct modelProduct =new ModelProduct();
-            modelProduct.setPrice("500");
-            modelProduct.setTitle("حبل نط");
-            modelFoodArrayList.add(modelProduct);
+        if (true) { //Username and Password Validation
+
+
+
+            Ion.with(getContext())
+                    .load("POST", Constants.Products_url)
+                    .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                                     @Override
+                                     public void onCompleted(Exception e, String response) {
+
+
+                                         //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
+                                         try {
+
+                                             if ((e != null)) {
+                                                 Toasty.warning(getContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+
+                                             } else {
+                                                 Log.d("login_response", response);
+                                                 JSONObject jsonObject = new JSONObject(response);
+
+
+
+                                                 if (response.contains("data")) {
+
+
+
+
+                                                     productArrayList = new ArrayList<>();
+                                                     recyclerProduct = view.findViewById(R.id.recyclerProduct);
+                                                     recyclerProduct.setNestedScrollingEnabled(false);
+
+                                                     JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                                     for (int i = 0; i < jsonArray.length(); i++) {
+                                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+
+                                                         ModelProduct modelProduct =new ModelProduct();
+                                                         modelProduct.setPrice(jsonObject1.getString("price"));
+
+                                                         modelProduct.setTitle(jsonObject1.getString("pro_name"));
+                                                         productArrayList.add(modelProduct);
+                                                     }
+                                                     if (productArrayList.size()>0){
+                                                         adapterProduct = new AdapterProduct(getActivity(),productArrayList);
+                                                         recyclerProduct.setAdapter(adapterProduct);
+                                                     }
+
+
+                                                 } else {
+                                                     Toasty.warning(getContext(), "Check Your Data", Toast.LENGTH_LONG).show();
+//
+
+                                                 }
+
+                                             }
+
+                                         } catch (Exception ex) {
+                                         }
+                                     }
+                                 }
+                    );
+
+
         }
-        if (modelFoodArrayList.size()>0){
-            adapterProduct = new AdapterProduct(getActivity(),modelFoodArrayList);
-            recyclerProduct.setAdapter(adapterProduct);
-        }
+
+
     }
+
     private void init() {
         //init spinner
         spinnerCategory = view.findViewById(R.id.spinner);

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fitnessgym.Activity.ClassDetails;
 import com.example.fitnessgym.Activity.FoodDetails;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
@@ -58,7 +59,14 @@ public class AdapterFood extends RecyclerView.Adapter<AdapterFood.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
-                activity.startActivity(new Intent(activity, FoodDetails.class));
+
+                Intent intent =new Intent(activity, FoodDetails.class);
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("body", item.getBody());
+                intent.putExtra("category", item.getCategory());
+                intent.putExtra("image", item.getImg());
+                intent.putExtra("post_date", item.getPost_date());
+                activity.startActivity(intent);
             }
         });
     }

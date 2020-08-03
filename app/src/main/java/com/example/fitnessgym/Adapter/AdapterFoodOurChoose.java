@@ -58,7 +58,14 @@ public class AdapterFoodOurChoose extends RecyclerView.Adapter<AdapterFoodOurCho
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
-                activity.startActivity(new Intent(activity, FoodDetails.class));
+
+                Intent intent =new Intent(activity, FoodDetails.class);
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("body", item.getBody());
+                intent.putExtra("category", item.getCategory());
+                intent.putExtra("image", item.getImg());
+                intent.putExtra("post_date", item.getPost_date());
+                activity.startActivity(intent);
             }
         });
     }

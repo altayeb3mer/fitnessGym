@@ -94,6 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="البريد الالكتروني"
+                        android:id="@+id/email"
                         android:textSize="@dimen/body1"
                         android:drawableRight="@drawable/ic_email"
                         android:drawablePadding="@dimen/margin1"
@@ -103,6 +104,7 @@
                         android:layout_height="wrap_content"
                         android:hint="كلمة السر"
                         android:textSize="@dimen/body1"
+                        android:id="@+id/password"
                         android:drawableRight="@drawable/ic_key"
                         android:drawablePadding="@dimen/margin1"
                         tools:ignore="RtlHardcoded" />
@@ -128,6 +130,7 @@
                         android:background="@drawable/login_btn_bg"
                         android:textSize="@dimen/body1"
                         android:text="تسجيل دخول"
+                        android:id="@+id/login"
                         android:textColor="@color/white"
                         />
                 </LinearLayout>

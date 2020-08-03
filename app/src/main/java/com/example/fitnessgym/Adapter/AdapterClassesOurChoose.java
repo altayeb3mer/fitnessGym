@@ -56,7 +56,14 @@ public class AdapterClassesOurChoose extends RecyclerView.Adapter<AdapterClasses
         holder.cardView_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(activity, ClassDetails.class));
+                Intent intent =new Intent(activity, ClassDetails.class);
+                intent.putExtra("class_name", item.getName());
+                intent.putExtra("couch_name", item.getCouch());
+                intent.putExtra("price_d", item.getSub_d_price());
+                intent.putExtra("price_m", item.getPrice());
+                intent.putExtra("days", item.getDates());
+                intent.putExtra("duration", item.getDuration());
+                activity.startActivity(intent);
             }
         });
     }

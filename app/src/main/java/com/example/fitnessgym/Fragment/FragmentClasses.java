@@ -4,19 +4,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import es.dmoral.toasty.Toasty;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.fitnessgym.Adapter.AdapterClasses;
 import com.example.fitnessgym.Adapter.AdapterFood;
+import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -77,25 +86,89 @@ public class FragmentClasses extends Fragment {
         initAdapterClasses();
 
     }
-    RecyclerView recyclerClasses;
     AdapterClasses adapterClasses;
-    ArrayList<ModelClasses> modelFoodArrayList;
-    private void initAdapterClasses() {
-        modelFoodArrayList = new ArrayList<>();
-        recyclerClasses = view.findViewById(R.id.recyclerFood);
-        recyclerClasses.setNestedScrollingEnabled(false);
+    ArrayList<ModelClasses> modelClassesArrayList;
+    RecyclerView recyclerViewClasses;
+    public void initAdapterClasses() {
 
-        for (int i = 0; i < 10; i++) {
-            ModelClasses modelClasses =new ModelClasses();
-            modelClasses.setPrice("500");
-            modelClasses.setTitle("رقص افريقي");
-            modelClasses.setCouch("شجون بابكر");
-            modelFoodArrayList.add(modelClasses);
+
+        if (true) { //Username and Password Validation
+
+
+
+            Ion.with(getContext())
+                    .load("POST", Constants.Classes_url)
+                    .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                                     @Override
+                                     public void onCompleted(Exception e, String response) {
+
+
+                                         //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
+                                         try {
+
+                                             if ((e != null)) {
+                                                 Toasty.warning(getContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+
+                                             } else {
+                                                 Log.d("login_response", response);
+                                                 JSONObject jsonObject = new JSONObject(response);
+
+
+
+                                                 if (response.contains("data")) {
+
+
+
+                                                     recyclerViewClasses = view.findViewById(R.id.recyclerClasses);
+
+                                                     modelClassesArrayList = new ArrayList<>();
+                                                     recyclerViewClasses.setNestedScrollingEnabled(false);
+
+                                                     JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                                     for (int i = 0; i < jsonArray.length(); i++) {
+                                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+
+                                                         ModelClasses modelClasses =new ModelClasses();
+                                                         modelClasses.setPrice(jsonObject1.getString("sub_m_price"));
+                                                         modelClasses.setSub_d_price(jsonObject1.getString("sub_m_price"));
+
+                                                         modelClasses.setName(jsonObject1.getString("class_name"));
+                                                         modelClasses.setCouch(jsonObject1.getString("coach_name"));
+                                                         modelClasses.setDuration(jsonObject1.getString("class_duration"));
+                                                         modelClasses.setDates(jsonObject1.getString("class_days"));
+                                                         modelClassesArrayList.add(modelClasses);
+
+                                                         //Save The Token Key In Prefrence
+
+//
+                                                     }
+                                                     adapterClasses = new AdapterClasses(getActivity(),modelClassesArrayList);
+                                                     if (modelClassesArrayList.size()>0){
+                                                         recyclerViewClasses.setAdapter(adapterClasses);
+                                                     }
+
+
+                                                 } else {
+                                                     Toasty.warning(getContext(), "Check Your Data", Toast.LENGTH_LONG).show();
+//
+
+                                                 }
+
+                                             }
+
+                                         } catch (Exception ex) {
+                                         }
+                                     }
+                                 }
+                    );
+
+
         }
-        if (modelFoodArrayList.size()>0){
-            adapterClasses = new AdapterClasses(getActivity(),modelFoodArrayList);
-            recyclerClasses.setAdapter(adapterClasses);
-        }
+
+
     }
 
     @Override

@@ -43,7 +43,7 @@
             android:layout_marginRight="@dimen/margin2"
             android:layout_marginLeft="@dimen/margin2">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerFood"
+                android:id="@+id/recyclerProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/main_product_rec_items"

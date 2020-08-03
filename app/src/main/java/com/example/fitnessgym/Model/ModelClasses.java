@@ -7,12 +7,32 @@ public class ModelClasses {
     private String title;
     private String couch;
 
+
     private String name;
     private String startIn;
     private String dates;
     private String times;
     private String duration;
     private String subType;
+    String couch_id;
+
+    public String getCouch_id() {
+        return couch_id;
+    }
+
+    public void setCouch_id(String couch_id) {
+        this.couch_id = couch_id;
+    }
+
+    public String getSub_d_price() {
+        return sub_d_price;
+    }
+
+    public void setSub_d_price(String sub_d_price) {
+        this.sub_d_price = sub_d_price;
+    }
+
+    String sub_d_price;
 
     public String getName() {
         return name;
