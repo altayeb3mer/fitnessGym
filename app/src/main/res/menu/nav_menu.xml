@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_menu_profile"
             />
         <item
-            android:id="@+id/nav_menu_notification"
+            android:id="@+id/nav_menu_about_us"
             android:title="عن التطبيق"
             android:icon="@drawable/ic_menu_about"
             />

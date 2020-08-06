@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="160dp"
     android:layoutDirection="rtl"
     android:gravity="center">
     <RelativeLayout
@@ -117,6 +117,31 @@
                 />
         </LinearLayout>
 
+<!--        <LinearLayout-->
+<!--            android:layout_marginTop="@dimen/margin1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:weightSum="1">-->
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="0.35"-->
+<!--                android:text="الفترة الزمنية"-->
+<!--                android:textColor="@color/txtPrimary"-->
+<!--                android:textSize="@dimen/subHeader"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:id="@+id/duration"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="0.65"-->
+<!--                android:text="اسم الكلاس"-->
+<!--                android:textColor="@color/colorAccent"-->
+<!--                android:textSize="@dimen/subHeader"-->
+<!--                />-->
+<!--        </LinearLayout>-->
+
         <LinearLayout
             android:layout_marginTop="@dimen/margin1"
             android:layout_width="match_parent"
@@ -135,36 +160,10 @@
                 android:id="@+id/duration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.65"
-                android:text="اسم الكلاس"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/subHeader"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/margin1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.35"
-                android:text="نوع الاشتراك"
-                android:textColor="@color/txtPrimary"
-                android:textSize="@dimen/subHeader"
-                />
-            <TextView
-                android:id="@+id/subType"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="0.35"
                 android:text="اسم الكلاس"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/subHeader"
-                android:gravity="right"
                 />
             <LinearLayout
                 android:layout_width="0dp"

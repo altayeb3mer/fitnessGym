@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessgym.Adapter.AdapterMyClasses;
+import com.example.fitnessgym.Adapter.AdapterMyClassesCoach;
 import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.R;
@@ -31,17 +32,17 @@ import java.util.ArrayList;
 import es.dmoral.toasty.Toasty;
 
 
-public class FragmentTabClass extends Fragment {
+public class FragmentTabClassCoach extends Fragment {
 
 
     View view;
     RecyclerView recyclerClasses;
-    AdapterMyClasses adapterClasses;
+    AdapterMyClassesCoach adapterClasses;
     ArrayList<ModelClasses> modelFoodArrayList;
     LinearLayout NoItemLay;
     ProgressBar progressLay;
 
-    public FragmentTabClass() {
+    public FragmentTabClassCoach() {
         // Required empty public constructor
     }
 
@@ -83,7 +84,7 @@ public class FragmentTabClass extends Fragment {
 //            modelFoodArrayList.add(modelClasses);
 //        }
         if (list.size() > 0) {
-            adapterClasses = new AdapterMyClasses(getActivity(), list);
+            adapterClasses = new AdapterMyClassesCoach(getActivity(), list);
             recyclerClasses.setAdapter(adapterClasses);
             progressLay.setVisibility(View.GONE);
         } else {

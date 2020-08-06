@@ -168,7 +168,6 @@ public class FragmentClasses extends Fragment {
 
         }
 
-
     }
 
     @Override
@@ -179,4 +178,7 @@ public class FragmentClasses extends Fragment {
         init();
         return view;
     }
+
+
+
 }

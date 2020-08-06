@@ -10,9 +10,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitnessgym.Fragment.FragmentFood;
 import com.example.fitnessgym.Fragment.FragmentClasses;
@@ -27,7 +33,8 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener,NavigationView.OnNavigationItemSelectedListener{
     BottomNavigationView bottomNavigationView;
-
+    View nHeader;
+    TextView textViewPhone, textViewName;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -39,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_drawer);
         init();
+        initNavHeader();
 //        viewPager.setOnTouchListener(new View.OnTouchListener()
 //        {
 //            @Override
@@ -172,6 +180,27 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
+
+            case R.id.nav_menu_about_us: {
+                openUrl("");
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
+            case R.id.nav_facebook: {
+                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
+            case R.id.nav_twitter: {
+                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
+            case R.id.nav_website: {
+                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
         }
 //
 //
@@ -226,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         return true;
     }
     public void switchToFragment(int f_no) {
-        FragmentManager manager = getSupportFragmentManager();
+//        FragmentManager manager = getSupportFragmentManager();
         switch (f_no) {
             case 1: {
                 viewPager.setCurrentItem(0);
@@ -274,4 +303,66 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             }
         }
     }
+
+    private void initNavHeader() {
+        SharedPreferences sp = getSharedPreferences("data", 0);
+        String mem_id = sp.getString("id", "");
+
+        nHeader = navigationView.getHeaderView(0);
+        textViewName = nHeader.findViewById(R.id.name);
+        textViewPhone = nHeader.findViewById(R.id.phone);
+
+        textViewName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mem_id.equals("")){
+                    startActivity(new Intent(MainActivity.this,Login.class));
+                }
+            }
+        });
+
+        if (!mem_id.equals("")){
+            String name = sp.getString("us_name", "");
+            String phone =  sp.getString("mem_phone", "");
+            textViewName.setText(name);
+            textViewPhone.setText(phone);
+
+
+        }else{
+//            nHeader.setVisibility(View.GONE);
+            textViewPhone.setVisibility(View.GONE);
+            textViewName.setText("اضغط لتسجيل الدخول");
+            Toast.makeText(this, "انت تتصفح التطبيق كزائر", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSomeNavItem();
+    }
+
+    Menu navMenu;
+    private void hideSomeNavItem(){
+        navMenu = navigationView.getMenu();
+        MenuItem login = navMenu.findItem(R.id.nav_menu_login);
+        MenuItem myProfile = navMenu.findItem(R.id.nav_menu_my_profile);
+
+        SharedPreferences sp = getSharedPreferences("data", 0);
+        String mem_id = sp.getString("id", "");
+        if (mem_id.equals("")){
+            myProfile.setVisible(false);
+        }else{
+            login.setVisible(false);
+        }
+    }
+
+    private void openUrl(String url){
+        if (!url.startsWith("http://") && !url.startsWith("https://"))
+            url = "http://" + url;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
 }

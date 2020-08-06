@@ -15,11 +15,12 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/n_header_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/account_circle_white"
             />
         <TextView
+            android:id="@+id/name"
             android:layout_marginTop="@dimen/margin1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
             android:textColor="@color/txtPrimaryWhite"
             android:textSize="@dimen/body2"/>
         <TextView
+            android:id="@+id/phone"
             android:layout_marginTop="@dimen/margin1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

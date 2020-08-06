@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessgym.Activity.ClassDetails;
@@ -21,14 +18,14 @@ import com.example.fitnessgym.R;
 import java.util.ArrayList;
 
 
-public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.ViewHolder> {
+public class AdapterMyClassesCoach extends RecyclerView.Adapter<AdapterMyClassesCoach.ViewHolder> {
 
     ArrayList<ModelClasses> modelClassesArrayList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Activity activity;
 
-    public AdapterMyClasses(Activity activity, ArrayList<ModelClasses> modelClasses) {
+    public AdapterMyClassesCoach(Activity activity, ArrayList<ModelClasses> modelClasses) {
         this.mInflater = LayoutInflater.from(activity);
         this.modelClassesArrayList = modelClasses;
         this.activity = activity;
@@ -37,7 +34,7 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.my_pro_class_item, parent, false);
+        View view = mInflater.inflate(R.layout.my_pro_class_item_coach, parent, false);
 
 
         return new ViewHolder(view);
@@ -53,14 +50,13 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
         holder.textView_dates.setText(item.getDates());
         holder.textView_times.setText(item.getTimes());
         holder.textView_duration.setText(item.getDuration());
-        holder.textView_subType.setText(item.getSubType());
+//        holder.textView_subType.setText(item.getSubType());
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                activity.startActivity(new Intent(activity, ClassDetails.class));
                 Intent intent = new Intent(activity,ClassDetails.class);
                 intent.putExtra("class_name", item.getName());
                 intent.putExtra("couch_name", item.getCouch());
@@ -69,7 +65,6 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
                 intent.putExtra("days", item.getDates());
                 intent.putExtra("duration", item.getDuration());
                 activity.startActivity(intent);
-//                Toast.makeText(activity, "جاري التنفيذ..", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,7 +98,7 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
             textView_dates = itemView.findViewById(R.id.dates);
             textView_times = itemView.findViewById(R.id.times);
             textView_duration = itemView.findViewById(R.id.duration);
-            textView_subType = itemView.findViewById(R.id.subType);
+//            textView_subType = itemView.findViewById(R.id.subType);
             button = itemView.findViewById(R.id.btn);
 
             itemView.setOnClickListener(this);

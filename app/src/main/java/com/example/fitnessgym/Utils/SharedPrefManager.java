@@ -29,44 +29,12 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    public boolean IsLoggedIn() {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_ACCESS_TOKEN, null) != null;
-    }
 
     public String GetToken() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_ACCESS_TOKEN, "");
     }
 
-    public boolean HasPin() {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean("has_pin", false);
-    }
-
-    public void SaveUserPhone(String phone) {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("phone", phone);
-        editor.apply();
-    }
-
-    public String GetUserPhone() {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString("phone", "");
-    }
-
-    public void SavePin(String phone) {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("pin", phone);
-        editor.apply();
-    }
-
-    public String GetPin() {
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString("pin", "");
-    }
 
     public void PutOpenState(boolean val) {
         SharedPreferences sp = mCtx.getSharedPreferences(SHARED_PREF_NAME, mCtx.MODE_PRIVATE);
@@ -86,16 +54,6 @@ public class SharedPrefManager {
     }
 
 
-    //tap target touch
-    public void TapTargetTouch(String s_activity, boolean val) {
-        SharedPreferences sp = mCtx.getSharedPreferences(SHARED_PREF_NAME, mCtx.MODE_PRIVATE);
-        SharedPreferences.Editor edit = sp.edit();
-        edit.putBoolean(s_activity, val);
-        edit.apply();
-    }
-    public boolean TapTargetIsFirstTouchActivity(String s_activity) {
-        SharedPreferences sp = mCtx.getSharedPreferences(SHARED_PREF_NAME, mCtx.MODE_PRIVATE);
-        return sp.getBoolean(s_activity, true);
-    }
+
 
 }

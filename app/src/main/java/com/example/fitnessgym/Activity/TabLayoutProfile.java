@@ -3,10 +3,12 @@ package com.example.fitnessgym.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.fitnessgym.Fragment.FragmentTabChats;
 import com.example.fitnessgym.Fragment.FragmentTabClass;
+import com.example.fitnessgym.Fragment.FragmentTabClassCoach;
 import com.example.fitnessgym.Fragment.FragmentTabMyProfile;
 import com.example.fitnessgym.Fragment.FragmentTabSales;
 import com.example.fitnessgym.Fragment.FragmentTabVideos;
@@ -33,11 +35,29 @@ public class TabLayoutProfile extends ToolbarClass {
         viewPager = findViewById(R.id.main_viewpager);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         //add to tab adapter
-        adapter.addFragment(new FragmentTabClass(),"الكلاسات");
-        adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
-        adapter.addFragment(new FragmentTabChats(),"الدردشات");
-        adapter.addFragment(new FragmentTabSales(),"المشتريات");
-        adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+
+        SharedPreferences sp = getSharedPreferences("data", 0);
+        String userType = sp.getString("acc_type", "");
+
+        if (userType.equalsIgnoreCase("user")){
+            adapter.addFragment(new FragmentTabClass(),"الكلاسات");
+//            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
+            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+        }else if (userType.equalsIgnoreCase("coach")){
+            adapter.addFragment(new FragmentTabClassCoach(),"الكلاسات");
+            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
+            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+        }else{
+            adapter.addFragment(new FragmentTabClass(),"الكلاسات");
+//            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
+            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+        }
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

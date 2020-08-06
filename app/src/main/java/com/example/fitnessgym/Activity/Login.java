@@ -150,7 +150,9 @@ public class Login extends ToolbarClass {
                                                      editor.apply();
                                                      Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                                                      startActivity(intent);
-//
+
+                                                     //altayeb
+                                                     finish();
 
 
                                                  } else {
