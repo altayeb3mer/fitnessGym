@@ -363,6 +363,7 @@ public class MainFragment extends Fragment {
 
 
                                                          ModelClasses modelClasses =new ModelClasses();
+                                                         modelClasses.setId(jsonObject1.getString("class_id"));
                                                          modelClasses.setPrice(jsonObject1.getString("sub_m_price"));
                                                          modelClasses.setSub_d_price(jsonObject1.getString("sub_m_price"));
 
@@ -370,6 +371,7 @@ public class MainFragment extends Fragment {
                                                          modelClasses.setCouch(jsonObject1.getString("coach_name"));
                                                          modelClasses.setDuration(jsonObject1.getString("class_duration"));
                                                          modelClasses.setDates(jsonObject1.getString("class_days"));
+                                                         modelClasses.setImg(jsonObject1.getString("coach_pic"));
                                                          modelClassesArrayList.add(modelClasses);
 
                                                          //Save The Token Key In Prefrence

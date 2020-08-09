@@ -59,6 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/caption"
+                        android:id="@+id/category"
                         android:textColor="@color/txtPrimary"
                         android:text="التصنيف : لياقة بدنية"/>
 

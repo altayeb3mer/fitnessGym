@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".Activity.SubscribeActivity"
+    android:background="@color/colorBg">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="@drawable/ic_back_toolbar"
+        app:title="الاشتراك"
+        android:id="@+id/public_toolbar"
+        app:layout_collapseMode="pin"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        app:titleTextColor="@android:color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_below="@+id/public_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4"
+        >
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="@dimen/margin4"
+                    android:layout_marginLeft="@dimen/margin4"
+                    >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="الهاتف"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_phone"
+                        android:drawablePadding="@dimen/margin1"
+                        android:id="@+id/phone"
+                        tools:ignore="RtlHardcoded" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="البريد الالكتروني"
+                        android:id="@+id/email"
+                        android:textSize="@dimen/body1"
+                        android:drawableRight="@drawable/ic_email"
+                        android:drawablePadding="@dimen/margin1"
+                        tools:ignore="RtlHardcoded"/>
+
+                    <Button
+                        android:id="@+id/spn_from_date"
+                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fry, May 12 2017"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/margin4"
+                        android:id="@+id/bottomLay"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:id="@+id/month"
+                            android:text="شهري"
+                            android:onClick="onRadioButtonClicked"
+                            android:layout_height="wrap_content"/>
+
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:id="@+id/day"
+                            android:text="يومي"
+                            android:onClick="onRadioButtonClicked"
+                            android:layout_height="wrap_content"/>
+
+
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_marginTop="@dimen/margin4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="left"
+                        android:id="@+id/subscribe"
+                        android:background="@drawable/login_btn_bg"
+                        android:textSize="@dimen/body1"
+                        android:text="الاشتراك"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

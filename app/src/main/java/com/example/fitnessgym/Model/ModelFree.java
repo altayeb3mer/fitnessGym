@@ -7,6 +7,16 @@ public class ModelFree {
     private String category;
     private String img;
 
+    public String getVid_url() {
+        return vid_url;
+    }
+
+    public void setVid_url(String vid_url) {
+        this.vid_url = vid_url;
+    }
+
+    private String vid_url;
+
     public String getId() {
         return id;
     }

@@ -3,6 +3,7 @@ package com.example.fitnessgym.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.example.fitnessgym.R;
 import com.example.fitnessgym.Utils.ToolbarClass;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -115,6 +117,12 @@ public class FoodDetails extends ToolbarClass {
         ((TextView)findViewById(R.id.title)).setText(extras.getString("title"));
         ((TextView)findViewById(R.id.body)).setText(extras.getString("body"));
         ((TextView)findViewById(R.id.post_date)).setText("التاريخ: "+extras.getString("post_date"));
+
+
+        Picasso
+                .with(getApplicationContext())
+                .load(extras.getString("image"))
+                .into(((ImageView)findViewById(R.id.food_image)));
 
 
         initAdapterFood();

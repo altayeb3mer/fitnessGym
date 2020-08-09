@@ -171,12 +171,12 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             }
             //navigation menu
             case R.id.nav_menu_login: {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
             case R.id.nav_menu_my_profile: {
-                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                startActivity(new Intent(getApplicationContext(), TabLayoutProfile.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
@@ -187,21 +187,22 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                 break;
             }
             case R.id.nav_facebook: {
-                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                startActivity(new Intent(getApplicationContext(), TabLayoutProfile.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
             case R.id.nav_twitter: {
-                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                startActivity(new Intent(getApplicationContext(), TabLayoutProfile.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
             case R.id.nav_website: {
-                startActivity(new Intent(getApplicationContext(),TabLayoutProfile.class));
+                startActivity(new Intent(getApplicationContext(), TabLayoutProfile.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             }
         }
+
 //
 //
 

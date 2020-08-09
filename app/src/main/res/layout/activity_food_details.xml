@@ -69,6 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
+                    android:id="@+id/food_image"
                     android:src="@drawable/paellamain"/>
                 <TextView
                     android:textStyle="bold"

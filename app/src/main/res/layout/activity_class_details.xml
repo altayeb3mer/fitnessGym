@@ -245,6 +245,8 @@
                     android:layout_marginBottom="@dimen/margin2"
                     android:layout_marginTop="@dimen/margin3"
                     android:text="انضم الان"
+                    android:id="@+id/join_button"
+                    android:visibility="gone"
                     android:textColor="@android:color/white"
                     android:gravity="center"
                     />

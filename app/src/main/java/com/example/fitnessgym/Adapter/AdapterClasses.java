@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fitnessgym.Activity.ClassDetails;
 import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -48,8 +49,14 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
         final ModelClasses item = modelClassesArrayList.get(position);
 
         holder.textView_price.setText(item.getPrice());
-        holder.textView_title.setText(item.getTitle());
+        holder.textView_title.setText(item.getName());
         holder.textView_couch.setText("المدرب : " + " " + item.getCouch());
+
+
+        Picasso
+                .with(activity)
+                .load(item.getImg()).placeholder(R.drawable.rec1_sample)
+                .into(holder.imageView);
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
@@ -59,12 +66,14 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
 
 
                 Intent intent =new Intent(activity, ClassDetails.class);
-                intent.putExtra("class_name", item.getName());
-                intent.putExtra("couch_name", item.getCouch());
-                intent.putExtra("price_d", item.getSub_d_price());
-                intent.putExtra("price_m", item.getPrice());
-                intent.putExtra("days", item.getDates());
-                intent.putExtra("duration", item.getDuration());
+                intent.putExtra("id",item.getId());
+//                intent.putExtra("class_name", item.getName());
+//                intent.putExtra("couch_name", item.getCouch());
+//                intent.putExtra("price_d", item.getSub_d_price());
+//                intent.putExtra("price_m", item.getPrice());
+//                intent.putExtra("days", item.getDates());
+//                intent.putExtra("duration", item.getDuration());
+//                intent.putExtra("image", item.getImg());
                 activity.startActivity(intent);
             }
         });

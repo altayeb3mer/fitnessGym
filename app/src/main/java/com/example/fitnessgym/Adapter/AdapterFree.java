@@ -1,8 +1,10 @@
 package com.example.fitnessgym.Adapter;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,21 +48,28 @@ public class AdapterFree extends RecyclerView.Adapter<AdapterFree.ViewHolder> {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ModelFree item = modelFreeArrayList.get(position);
 
         holder.textView_title.setText(item.getTitle());
         holder.textView_couch.setText("المدرب : " + " " + item.getCouch());
-        holder.textView_category.setText("الصف : "+" "+item.getCouch());
+        holder.textView_category.setText("الصف : "+" "+item.getCategory());
+        Log.e("coach_name_kk",item.getCouch());
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
         holder.lay_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(activity, FreeClassDetails.class));
-//                Toast.makeText(activity, "تمارين زومبا", Toast.LENGTH_SHORT).show();
+
+
+                Intent intent =new Intent(activity, FreeClassDetails.class);
+                intent.putExtra("class_name", item.getCategory());
+                intent.putExtra("couch_name", item.getCouch());
+                intent.putExtra("video_url", item.getVid_url());
+                activity.startActivity(intent);
             }
         });
     }

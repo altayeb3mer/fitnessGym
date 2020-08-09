@@ -3,6 +3,7 @@ package com.example.fitnessgym.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.fitnessgym.Activity.ClassDetails;
 import com.example.fitnessgym.Activity.FoodDetails;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,11 @@ public class AdapterFood extends RecyclerView.Adapter<AdapterFood.ViewHolder> {
         holder.textView_category.setText(item.getCategory());
         holder.textView_title.setText(item.getTitle());
         holder.textView_body.setText(item.getBody());
+
+        Picasso
+                .with(activity)
+                .load(item.getImg())
+                .into(holder.imageView);
 
 //        Glide.with(activity).load("").into(holder.imageView);
 

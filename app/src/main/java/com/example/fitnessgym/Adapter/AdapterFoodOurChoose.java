@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fitnessgym.Activity.FoodDetails;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,11 @@ public class AdapterFoodOurChoose extends RecyclerView.Adapter<AdapterFoodOurCho
         holder.textView_category.setText(item.getCategory());
         holder.textView_title.setText(item.getTitle());
         holder.textView_body.setText(item.getBody());
+
+        Picasso
+                .with(activity)
+                .load(item.getImg())
+                .into(holder.imageView);
 
 //        Glide.with(activity).load("").into(holder.imageView);
 

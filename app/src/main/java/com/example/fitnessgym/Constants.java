@@ -6,6 +6,7 @@ public class Constants {
     public  static  String Classes_url="http://onlinefit.com.sd/api/api/read.php";
     public  static  String Products_url="http://onlinefit.com.sd/api/api/read_products.php";
     public  static  String Blog_url="http://onlinefit.com.sd/api/api/read_blog.php";
+    public  static  String Video_url ="http://onlinefit.com.sd/api/api/read_video.php";
 
     //altayeb
     public  static  String Subscribe_url="http://onlinefit.com.sd/api/api/read_subscribe.php";

@@ -4,19 +4,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import es.dmoral.toasty.Toasty;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.example.fitnessgym.Adapter.AdapterClasses;
+import com.example.fitnessgym.Adapter.AdapterFood;
 import com.example.fitnessgym.Adapter.AdapterFree;
-import com.example.fitnessgym.Model.ModelClasses;
+import com.example.fitnessgym.Constants;
+import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.Model.ModelFree;
 import com.example.fitnessgym.R;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -78,28 +87,102 @@ public class FragmentFree extends Fragment {
 
     }
 
-    private void initAdapterFree() {
-        modelFreeArrayList = new ArrayList<>();
-        recyclerFree = view.findViewById(R.id.recyclerFree);
-        recyclerFree.setNestedScrollingEnabled(false);
-
-        for (int i = 0; i < 10; i++) {
-            ModelFree modelFree =new ModelFree();
-            modelFree.setTitle("تمارين زومبا لتنحيف الجسم لتنحيف الجسم");
-            modelFree.setCouch("شجون بابكر");
-            modelFree.setCategory("زومبا");
-            modelFreeArrayList.add(modelFree);
-        }
-        if (modelFreeArrayList.size()>0){
-            adapterFree = new AdapterFree(getActivity(),modelFreeArrayList);
-            recyclerFree.setAdapter(adapterFree);
-        }
-    }
+//    private void initAdapterFree() {
+//        modelFreeArrayList = new ArrayList<>();
+//        recyclerFree = view.findViewById(R.id.recyclerFree);
+//        recyclerFree.setNestedScrollingEnabled(false);
+//
+//        for (int i = 0; i < 10; i++) {
+//            ModelFree modelFree =new ModelFree();
+//            modelFree.setTitle("تمارين زومبا لتنحيف الجسم لتنحيف الجسم");
+//            modelFree.setCouch("شجون بابكر");
+//            modelFree.setCategory("زومبا");
+//            modelFreeArrayList.add(modelFree);
+//        }
+//        if (modelFreeArrayList.size()>0){
+//            adapterFree = new AdapterFree(getActivity(),modelFreeArrayList);
+//            recyclerFree.setAdapter(adapterFree);
+//        }
+//    }
     RecyclerView recyclerFree;
     AdapterFree adapterFree;
     ArrayList<ModelFree> modelFreeArrayList;
 
 
+    public void initAdapterFree() {
+
+
+        if (true) { //Username and Password Validation
+
+
+
+            Ion.with(getContext())
+                    .load("POST", Constants.Video_url+"?vid_tag=free")
+                    .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
+                    .asString()
+                    .setCallback(new FutureCallback<String>() {
+                                     @Override
+                                     public void onCompleted(Exception e, String response) {
+
+
+                                         //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
+                                         try {
+
+                                             if ((e != null)) {
+                                                 Toasty.warning(getContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+
+                                             } else {
+                                                 Log.d("login_response", response);
+                                                 JSONObject jsonObject = new JSONObject(response);
+
+
+
+                                                 if (response.contains("data")) {
+
+
+
+
+                                                     modelFreeArrayList = new ArrayList<>();
+                                                     recyclerFree = view.findViewById(R.id.recyclerFree);
+                                                     recyclerFree.setNestedScrollingEnabled(false);
+                                                     JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                                     for (int i = 0; i < jsonArray.length(); i++) {
+                                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                                                         ModelFree modelFree =new ModelFree();
+                                                         modelFree.setId(jsonObject1.getString("vid_id"));
+
+                                                         modelFree.setCouch(jsonObject1.getString("coach_name"));
+                                                         modelFree.setCategory(jsonObject1.getString("class_name"));
+                                                         modelFree.setTitle(jsonObject1.getString("vid_title"));
+                                                         modelFree.setVid_url(jsonObject1.getString("vid_url"));
+
+                                                         modelFreeArrayList.add(modelFree);
+                                                     }
+                                                     if (modelFreeArrayList.size()>0){
+                                                         adapterFree = new AdapterFree(getActivity(),modelFreeArrayList);
+                                                         recyclerFree.setAdapter(adapterFree);
+                                                     }
+
+                                                 } else {
+                                                     Toasty.warning(getContext(), "Check Your Data", Toast.LENGTH_LONG).show();
+//
+
+                                                 }
+
+                                             }
+
+                                         } catch (Exception ex) {
+                                         }
+                                     }
+                                 }
+                    );
+
+
+        }
+
+
+    }
 
     View view;
     @Override
