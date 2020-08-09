@@ -140,6 +140,7 @@ public class SubscribeActivity extends AppCompatActivity {
 //                    .show();
 
             String mem_id = sp.getString("id", "");
+            Log.e("id_of_user",mem_id);
             Ion.with(getApplicationContext())
                     .load("POST", Constants.Subscribe_url)
                     .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
@@ -161,9 +162,8 @@ public class SubscribeActivity extends AppCompatActivity {
                                                  Toasty.warning(getApplicationContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
 
                                              } else {
-                                                 Log.d("login_response", response);
-                                                 JSONObject jsonObject = new JSONObject(response);
 
+                                                 Toasty.success(getApplicationContext(), "Subscribe Successful", Toast.LENGTH_LONG).show();
 
 
                                                  if (response.contains("data")) {
