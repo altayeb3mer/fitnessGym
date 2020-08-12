@@ -1,6 +1,7 @@
 package com.example.fitnessgym.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewpager.widget.PagerAdapter;
 
 
+import com.example.fitnessgym.Activity.MainActivity;
 import com.example.fitnessgym.Model.ModelSliderImg;
 import com.example.fitnessgym.R;
 
@@ -62,12 +65,21 @@ public class SlideShow_adapter_main extends PagerAdapter {
         TextView textView_title = view.findViewById(R.id.textView_title);
         TextView textView_body = view.findViewById(R.id.textView_body);
         ImageView imgView=view.findViewById(R.id.imgView);
+        AppCompatButton appCompatButton=view.findViewById(R.id.slider_btn);
 
         ModelSliderImg modelSlideShowImg = new ModelSliderImg();
         modelSlideShowImg = modelSliderImgArrayList.get(position);
 
         textView_title.setText(modelSlideShowImg.getTitle());
         textView_body.setText(modelSlideShowImg.getBody());
+        appCompatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("page","classes");
+                context.startActivity(intent);
+            }
+        });
 
 
 //            Glide.with(context).load(modelSlideShowImg.getImg_url())

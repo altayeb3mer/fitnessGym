@@ -83,7 +83,7 @@ public class Register extends ToolbarClass {
     public void send_data(){
 
         //validateName() &&  && validateNumber()
-        if (true){
+        if (validateUserName()&& validateEmail() && validatePass() && validateCnfPass()){
             Log.d("here1","here1");
             // validateUserName()&& validateEmail() && validatePass() && validateCnfPass()
 

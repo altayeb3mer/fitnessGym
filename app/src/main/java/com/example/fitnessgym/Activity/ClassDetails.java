@@ -38,10 +38,12 @@ public class ClassDetails extends ToolbarClass {
     TextView class_name,couch_name,price_m,price_d,duration,days;
     ImageView image;
     String class_id;
+    SharedPreferences sp;
 
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.onCreate(R.layout.activity_class_details, "تفاصيل كلاس");
+        sp = getSharedPreferences("data", 0);
 
         class_name = findViewById(R.id.class_name);
         couch_name = findViewById(R.id.couch);
@@ -54,14 +56,21 @@ public class ClassDetails extends ToolbarClass {
         findViewById(R.id.join_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String mem_id = sp.getString("id", "");
+                if(mem_id.equals("")){
 
+
+
+                    Toast.makeText(getApplicationContext(), "يرجى تسجيل الدخول" , Toast.LENGTH_SHORT).show();
+                }
+else{
                 Intent intent = getIntent();
                 Bundle extras = intent.getExtras();
                 assert extras != null;
                 String class_id = extras.getString("id");
                 Intent intent1 = new Intent(getApplicationContext(),SubscribeActivity.class);
                 intent1.putExtra("class_id", class_id);
-               startActivity(intent1);
+               startActivity(intent1);}
 
             }
         });

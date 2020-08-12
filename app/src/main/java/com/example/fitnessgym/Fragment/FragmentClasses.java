@@ -22,12 +22,14 @@ import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
 import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.async.util.Charsets;
 import com.koushikdutta.ion.Ion;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class FragmentClasses extends Fragment {
@@ -39,7 +41,7 @@ public class FragmentClasses extends Fragment {
 
     //spinner
     Spinner spinnerCategory;
-   public String[] arrayCat;
+   public static String[] arrayCat,arrIdCat;
     ArrayAdapter<String> adapter1;
     View view;
     private void init() {
@@ -47,8 +49,8 @@ public class FragmentClasses extends Fragment {
         //init spinner
        // Log.e("CatArray", String.valueOf(arrayCat.length));
         spinnerCategory = view.findViewById(R.id.spinner);
-        arrayCat = new String[]{"كل الكلاسات", "زومبا", "ايربكس", "يوغا", "رقص افريقي"};
-        adapter1 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, arrayCat) {
+       // arrayCat = new String[]{"كل الكلاسات", "زومبا", "ايربكس", "يوغا", "رقص افريقي"};
+        adapter1 = new ArrayAdapter<String>(Objects.requireNonNull(getActivity()), R.layout.spinner_item, arrayCat) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 View v = null;
@@ -72,6 +74,8 @@ public class FragmentClasses extends Fragment {
         spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("category",arrayCat[position]+position);
+                initAdapterSpecificClasses(arrIdCat[position]);
 //                if (position == 0) {
 //                    s_month = "";
 //                } else {
@@ -129,7 +133,10 @@ public class FragmentClasses extends Fragment {
                                                      recyclerViewClasses.setNestedScrollingEnabled(false);
 
                                                      JSONArray jsonArray = jsonObject.getJSONArray("data");
-//                                                     arrayCat = new String[jsonArray.length()];
+                                                     arrayCat = new String[jsonArray.length()+1];
+                                                     arrIdCat = new String[jsonArray.length()+1];
+                                                     arrayCat[0]="";
+                                                     arrayCat[0]="";
                                                      for (int i = 0; i < jsonArray.length(); i++) {
                                                          JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
@@ -138,7 +145,9 @@ public class FragmentClasses extends Fragment {
                                                          modelClasses.setId(jsonObject1.getString("class_id"));
                                                          modelClasses.setPrice(jsonObject1.getString("sub_m_price"));
                                                          modelClasses.setSub_d_price(jsonObject1.getString("sub_m_price"));
-//                                                         arrayCat[i]=jsonObject1.getString("class_name");
+                                                        arrayCat[i+1]=jsonObject1.getString("class_name");
+                                                        Log.e("array_cat",arrayCat[i]);
+                                                        arrIdCat[i+1]=jsonObject1.getString("class_id");
 
                                                          modelClasses.setName(jsonObject1.getString("class_name"));
                                                          modelClasses.setCouch(jsonObject1.getString("coach_name"));
@@ -151,10 +160,12 @@ public class FragmentClasses extends Fragment {
 
 //
                                                      }
+
                                                      adapterClasses = new AdapterClasses(getActivity(),modelClassesArrayList);
                                                      if (modelClassesArrayList.size()>0){
                                                          recyclerViewClasses.setAdapter(adapterClasses);
                                                      }
+                                                     init();
 
 
                                                  } else {
@@ -177,13 +188,107 @@ public class FragmentClasses extends Fragment {
 
     }
 
+
+
+
+    public void initAdapterSpecificClasses(String class_id) {
+
+
+        if (true) { //Username and Password Validation
+
+
+
+
+
+                Ion.with(getContext())
+                        .load("POST", Constants.Classes_url + "?class_id=" + class_id)
+                        .setHeader("Cookie", "PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
+                        .asString(Charsets.UTF_8)
+                        .setCallback(new FutureCallback<String>() {
+
+                                         @Override
+                                         public void onCompleted(Exception e, String response) {
+
+
+                                             //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
+                                             try {
+
+                                                 if ((e != null)) {
+                                                     Toasty.warning(getContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+
+                                                 } else {
+                                                     Log.d("login_response", response);
+                                                     JSONObject jsonObject = new JSONObject(response);
+
+
+                                                     if (response.contains("data")) {
+
+
+                                                         recyclerViewClasses = view.findViewById(R.id.recyclerClasses);
+
+                                                         modelClassesArrayList = new ArrayList<>();
+                                                         recyclerViewClasses.setNestedScrollingEnabled(false);
+
+                                                         JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+
+                                                         for (int i = 0; i < jsonArray.length(); i++) {
+                                                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+
+                                                             ModelClasses modelClasses = new ModelClasses();
+                                                             modelClasses.setId(jsonObject1.getString("class_id"));
+                                                             modelClasses.setPrice(jsonObject1.getString("sub_m_price"));
+                                                             modelClasses.setSub_d_price(jsonObject1.getString("sub_m_price"));
+
+
+                                                             modelClasses.setName(jsonObject1.getString("class_name"));
+                                                             modelClasses.setCouch(jsonObject1.getString("coach_name"));
+                                                             modelClasses.setDuration(jsonObject1.getString("class_duration"));
+                                                             modelClasses.setDates(jsonObject1.getString("class_days"));
+                                                             modelClasses.setImg(jsonObject1.getString("coach_pic"));
+                                                             modelClassesArrayList.add(modelClasses);
+
+                                                             //Save The Token Key In Prefrence
+
+//
+                                                         }
+
+                                                         adapterClasses = new AdapterClasses(getActivity(), modelClassesArrayList);
+                                                         if (modelClassesArrayList.size() > 0) {
+                                                             recyclerViewClasses.setAdapter(adapterClasses);
+                                                         }
+
+
+                                                     } else {
+                                                         Toasty.warning(getContext(), "Check Your Data", Toast.LENGTH_LONG).show();
+//
+
+                                                     }
+
+                                                 }
+
+                                             } catch (Exception ex) {
+                                             }
+                                         }
+                                     }
+                        );
+
+
+            }
+
+
+
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_classes, container, false);
         initAdapterClasses();
-        init();
+        //init();
         return view;
     }
 }
