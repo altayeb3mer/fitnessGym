@@ -124,6 +124,33 @@ public class MainFragment extends Fragment {
         initAdapterClasses();
         initAdapterProduct();
         initAdapterFood();
+        view.findViewById(R.id.seeAllClasses).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              Intent intent = new Intent(getContext(),MainActivity.class);
+              intent.putExtra("page","classes");
+              startActivity(intent);
+
+            }
+        });
+        view.findViewById(R.id.seeAllFood).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),MainActivity.class);
+                intent.putExtra("page","food");
+                startActivity(intent);
+
+            }
+        });
+        view.findViewById(R.id.seeAllPro).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),MainActivity.class);
+                intent.putExtra("page","product");
+                startActivity(intent);
+
+            }
+        });
         return view;
     }
 

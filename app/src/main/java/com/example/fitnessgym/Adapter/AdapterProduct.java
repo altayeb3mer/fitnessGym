@@ -54,7 +54,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         holder.cardView_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "قريبا" , Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -117,7 +117,7 @@ public class FragmentFree extends Fragment {
 
 
             Ion.with(getContext())
-                    .load("POST", Constants.Video_url+"?vid_tag=free")
+                    .load("GET", Constants.Video_url+"?vid_tag=free")
                     .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
                     .asString()
                     .setCallback(new FutureCallback<String>() {

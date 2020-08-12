@@ -93,10 +93,10 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="البريد الالكتروني"
+                        android:hint="ااسم المستخدم"
                         android:id="@+id/email"
                         android:textSize="@dimen/body1"
-                        android:drawableRight="@drawable/ic_email"
+                        android:drawableRight="@drawable/ic_person"
                         android:drawablePadding="@dimen/margin1"
                         tools:ignore="RtlHardcoded"/>
                     <com.google.android.material.textfield.TextInputEditText
@@ -104,10 +104,14 @@
                         android:layout_height="wrap_content"
                         android:hint="كلمة السر"
                         android:textSize="@dimen/body1"
+
+                        android:gravity="right"
                         android:id="@+id/password"
                         android:drawableRight="@drawable/ic_key"
                         android:drawablePadding="@dimen/margin1"
-                        tools:ignore="RtlHardcoded" />
+                        tools:ignore="RtlHardcoded"
+                        android:inputType="textPassword"
+                        />
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -45,8 +45,32 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_drawer);
+
         init();
         initNavHeader();
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if(extras!=null) {
+            String page = extras.getString("page");
+
+
+            if (page.equals("classes")) {
+                switchToFragment(4);
+
+
+            }
+            else  if (page.equals("product")) {
+                switchToFragment(3);
+
+
+            }
+            else  if (page.equals("food")) {
+                switchToFragment(2);
+
+
+            }
+        }
+
 //        viewPager.setOnTouchListener(new View.OnTouchListener()
 //        {
 //            @Override

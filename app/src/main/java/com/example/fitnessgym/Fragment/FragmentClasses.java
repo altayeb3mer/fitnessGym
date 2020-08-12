@@ -39,11 +39,13 @@ public class FragmentClasses extends Fragment {
 
     //spinner
     Spinner spinnerCategory;
-    String[] arrayCat;
+   public String[] arrayCat;
     ArrayAdapter<String> adapter1;
     View view;
     private void init() {
+
         //init spinner
+       // Log.e("CatArray", String.valueOf(arrayCat.length));
         spinnerCategory = view.findViewById(R.id.spinner);
         arrayCat = new String[]{"كل الكلاسات", "زومبا", "ايربكس", "يوغا", "رقص افريقي"};
         adapter1 = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, arrayCat) {
@@ -83,7 +85,7 @@ public class FragmentClasses extends Fragment {
         });
 
         //recycler
-        initAdapterClasses();
+
 
     }
     AdapterClasses adapterClasses;
@@ -127,6 +129,7 @@ public class FragmentClasses extends Fragment {
                                                      recyclerViewClasses.setNestedScrollingEnabled(false);
 
                                                      JSONArray jsonArray = jsonObject.getJSONArray("data");
+//                                                     arrayCat = new String[jsonArray.length()];
                                                      for (int i = 0; i < jsonArray.length(); i++) {
                                                          JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
@@ -135,6 +138,7 @@ public class FragmentClasses extends Fragment {
                                                          modelClasses.setId(jsonObject1.getString("class_id"));
                                                          modelClasses.setPrice(jsonObject1.getString("sub_m_price"));
                                                          modelClasses.setSub_d_price(jsonObject1.getString("sub_m_price"));
+//                                                         arrayCat[i]=jsonObject1.getString("class_name");
 
                                                          modelClasses.setName(jsonObject1.getString("class_name"));
                                                          modelClasses.setCouch(jsonObject1.getString("coach_name"));
@@ -178,6 +182,7 @@ public class FragmentClasses extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_classes, container, false);
+        initAdapterClasses();
         init();
         return view;
     }

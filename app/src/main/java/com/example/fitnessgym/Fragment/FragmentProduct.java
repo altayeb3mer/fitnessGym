@@ -167,7 +167,8 @@ public class FragmentProduct extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_product, container, false);
-        init();
+        initAdapterProduct();
+//        init();
 
         return view;
     }
