@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.TabLayoutProfile">
+    tools:context=".Activity.TabLayoutProfile"
+    android:layoutDirection="rtl">
 
 
     <androidx.cardview.widget.CardView
@@ -44,9 +45,10 @@
         />
     <androidx.viewpager.widget.ViewPager
         android:background="@android:color/transparent"
-        android:layoutDirection="rtl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_viewpager"
-        android:layout_below="@+id/main_tablayout"/>
+        android:layout_below="@+id/main_tablayout"
+        android:rotation="360"
+        android:rotationY="360"/>
 </RelativeLayout>
