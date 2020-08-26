@@ -128,6 +128,7 @@ public class FragmentTabClass extends Fragment {
                                                      JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                                                      ModelClasses modelClasses = new ModelClasses();
+                                                     modelClasses.setId(jsonObject1.getString("class_id"));
                                                      modelClasses.setName(jsonObject1.getString("class_name"));
                                                      modelClasses.setStartIn(jsonObject1.getString("start_date"));
                                                      modelClasses.setDates(jsonObject1.getString("class_days"));

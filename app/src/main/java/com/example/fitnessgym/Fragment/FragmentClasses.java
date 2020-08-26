@@ -75,12 +75,12 @@ public class FragmentClasses extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("category",arrayCat[position]+position);
-                initAdapterSpecificClasses(arrIdCat[position]);
-//                if (position == 0) {
-//                    s_month = "";
-//                } else {
-//                    s_month = array_month[position];
-//                }
+                if(position==0){
+                    initAdapterClasses(1);
+
+                }
+                else
+                     initAdapterSpecificClasses(arrIdCat[position]);
             }
 
             @Override
@@ -95,7 +95,7 @@ public class FragmentClasses extends Fragment {
     AdapterClasses adapterClasses;
     ArrayList<ModelClasses> modelClassesArrayList;
     RecyclerView recyclerViewClasses;
-    public void initAdapterClasses() {
+    public void initAdapterClasses(int tmp) {
 
 
         if (true) { //Username and Password Validation
@@ -135,8 +135,8 @@ public class FragmentClasses extends Fragment {
                                                      JSONArray jsonArray = jsonObject.getJSONArray("data");
                                                      arrayCat = new String[jsonArray.length()+1];
                                                      arrIdCat = new String[jsonArray.length()+1];
-                                                     arrayCat[0]="";
-                                                     arrayCat[0]="";
+                                                     arrayCat[0]="الكل";
+                                                     arrIdCat[0]="";
                                                      for (int i = 0; i < jsonArray.length(); i++) {
                                                          JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
@@ -165,7 +165,9 @@ public class FragmentClasses extends Fragment {
                                                      if (modelClassesArrayList.size()>0){
                                                          recyclerViewClasses.setAdapter(adapterClasses);
                                                      }
-                                                     init();
+
+                                                     if(tmp==0){
+                                                     init();}
 
 
                                                  } else {
@@ -287,7 +289,7 @@ public class FragmentClasses extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_classes, container, false);
-        initAdapterClasses();
+        initAdapterClasses(0);
         //init();
         return view;
     }

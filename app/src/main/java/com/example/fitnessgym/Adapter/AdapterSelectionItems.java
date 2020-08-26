@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ import com.example.fitnessgym.R;
 import java.util.ArrayList;
 
 
-public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.ViewHolder> {
+public class AdapterSelectionItems extends RecyclerView.Adapter<AdapterSelectionItems.ViewHolder> {
 
     ArrayList<ModelClasses> modelClassesArrayList;
     private LayoutInflater mInflater;
@@ -31,7 +32,7 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
     private Activity activity;
     int tmp=0;
 
-    public AdapterMyClasses(Activity activity, ArrayList<ModelClasses> modelClasses) {
+    public AdapterSelectionItems(Activity activity, ArrayList<ModelClasses> modelClasses) {
         this.mInflater = LayoutInflater.from(activity);
         this.modelClassesArrayList = modelClasses;
         this.activity = activity;
@@ -40,7 +41,7 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.my_pro_class_item, parent, false);
+        View view = mInflater.inflate(R.layout.main_selection_classes_items, parent, false);
 
 
         return new ViewHolder(view);
@@ -51,32 +52,12 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ModelClasses item = modelClassesArrayList.get(position);
 
-        holder.textView_name.setText(item.getName());
-        holder.textView_start.setText(item.getStartIn());
-        holder.textView_dates.setText(item.getDates());
-        holder.textView_times.setText(item.getTimes());
-        holder.textView_duration.setText(item.getDuration());
-        holder.textView_subType.setText(item.getSubType());
+        holder.class_name.setText(item.getName());
+
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                activity.startActivity(new Intent(activity, ClassDetails.class));
-                Intent intent = new Intent(activity, SubscribeClassDetails.class);
-                intent.putExtra("class_name", item.getName());
-                intent.putExtra("couch_name", item.getCouch());
-                intent.putExtra("price_d", item.getSub_d_price());
-                intent.putExtra("price_m", item.getPrice());
-                intent.putExtra("days", item.getDates());
-                intent.putExtra("duration", item.getDuration());
-                intent.putExtra("class_id", item.getId());
-                activity.startActivity(intent);
 
-//                Toast.makeText(activity, "جاري التنفيذ..", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -98,18 +79,11 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView textView_name, textView_start, textView_dates, textView_times, textView_duration, textView_subType;
-        AppCompatButton button;
+        AppCompatRadioButton class_name;
 
         ViewHolder(View itemView) {
             super(itemView);
-            textView_name = itemView.findViewById(R.id.name);
-            textView_start = itemView.findViewById(R.id.start);
-            textView_dates = itemView.findViewById(R.id.dates);
-            textView_times = itemView.findViewById(R.id.times);
-            textView_duration = itemView.findViewById(R.id.duration);
-            textView_subType = itemView.findViewById(R.id.subType);
-            button = itemView.findViewById(R.id.btn);
+            class_name = itemView.findViewById(R.id.class_name);
 
             itemView.setOnClickListener(this);
         }

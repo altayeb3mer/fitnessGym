@@ -65,7 +65,7 @@ public class AdapterFood extends RecyclerView.Adapter<AdapterFood.ViewHolder> {
         holder.cardView_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(activity, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+
 
                 Intent intent =new Intent(activity, FoodDetails.class);
                 intent.putExtra("title", item.getTitle());

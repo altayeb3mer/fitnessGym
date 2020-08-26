@@ -9,9 +9,11 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +53,10 @@ public class Login extends ToolbarClass {
 
         login_button = findViewById(R.id.login);
         preferences=getSharedPreferences("data",0);
+
+
+
+
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override

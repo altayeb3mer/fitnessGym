@@ -284,7 +284,6 @@ else{
                                                  } else {
                                                      Toasty.warning(getApplicationContext(), "Check Your Data", Toast.LENGTH_LONG).show();
 //
-
                                                  }
 
                                              }

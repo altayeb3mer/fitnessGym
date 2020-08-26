@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#060B21</color>
     <color name="colorPrimaryDark">#05091C</color>
-    <color name="colorAccent">#4DB947</color>
+    <color name="colorAccent">#5f285f</color>
     <color name="colorBg">#EEEEEE</color>
 
     <color name="slideBgTrans">#80060B21</color>

@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="يسرا بت الباشا"
             android:textColor="@color/txtPrimaryWhite"
-            android:textSize="@dimen/body2"/>
+            android:textSize="@dimen/body3"/>
         <TextView
             android:id="@+id/phone"
             android:layout_marginTop="@dimen/margin1"

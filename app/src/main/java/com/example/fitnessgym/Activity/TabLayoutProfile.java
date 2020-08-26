@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.fitnessgym.Fragment.FragmentTabChats;
 import com.example.fitnessgym.Fragment.FragmentTabClass;
@@ -25,7 +26,7 @@ public class TabLayoutProfile extends ToolbarClass {
 
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.onCreate(R.layout.activity_tab_layout_profile, "ملفي الشخصي");
+        super.onCreate(R.layout.activity_tab_layout_profile, "حسابي");
 
         initTabLay();
     }
@@ -38,25 +39,28 @@ public class TabLayoutProfile extends ToolbarClass {
 
         SharedPreferences sp = getSharedPreferences("data", 0);
         String userType = sp.getString("acc_type", "");
+        Log.d("acc_type",userType);
 
         if (userType.equalsIgnoreCase("user")){
             adapter.addFragment(new FragmentTabClass(),"الكلاسات");
+            adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
 //            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
-            adapter.addFragment(new FragmentTabChats(),"الدردشات");
             adapter.addFragment(new FragmentTabSales(),"المشتريات");
-            adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
+
+
         }else if (userType.equalsIgnoreCase("coach")){
-            adapter.addFragment(new FragmentTabClassCoach(),"الكلاسات");
-            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
-            adapter.addFragment(new FragmentTabChats(),"الدردشات");
-            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabClass(),"الكلاسات");
             adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
+            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
         }else{
             adapter.addFragment(new FragmentTabClass(),"الكلاسات");
-//            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
-            adapter.addFragment(new FragmentTabChats(),"الدردشات");
-            adapter.addFragment(new FragmentTabSales(),"المشتريات");
             adapter.addFragment(new FragmentTabMyProfile(),"البروفايل");
+//            adapter.addFragment(new FragmentTabVideos(),"الفيديوهات");
+            adapter.addFragment(new FragmentTabSales(),"المشتريات");
+            adapter.addFragment(new FragmentTabChats(),"الدردشات");
         }
 
         viewPager.setAdapter(adapter);

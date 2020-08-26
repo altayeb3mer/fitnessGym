@@ -33,13 +33,16 @@
         android:layout_below="@+id/toolbar">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <com.potyvideo.library.AndExoPlayerView
                 android:id="@+id/player"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="250dp"
+                app:andexo_aspect_ratio="aspect_16_9"
                 app:andexo_full_screen="true"
-                app:andexo_play_when_ready="true" />
+                app:andexo_play_when_ready="true"
+                app:andexo_show_controller="true"
+                app:andexo_resize_mode="Fit"/>
 
             <LinearLayout
                 android:layout_below="@+id/player"

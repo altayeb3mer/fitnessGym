@@ -7,6 +7,16 @@ public class ModelFree {
     private String category;
     private String img;
 
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
+    }
+
+    String class_id;
+
     public String getVid_url() {
         return vid_url;
     }

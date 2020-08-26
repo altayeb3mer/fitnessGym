@@ -84,8 +84,13 @@ public class FragmentProduct extends Fragment {
 
                                                          ModelProduct modelProduct =new ModelProduct();
                                                          modelProduct.setPrice(jsonObject1.getString("price"));
+                                                         modelProduct.setId(jsonObject1.getString("pro_id"));
+                                                         modelProduct.setTitle(jsonObject1.getString("pro_details"));
+                                                         modelProduct.setCategory(jsonObject1.getString("pro_category"));
 
-                                                         modelProduct.setTitle(jsonObject1.getString("pro_name"));
+
+
+                                                         modelProduct.setName(jsonObject1.getString("pro_name"));
                                                          productArrayList.add(modelProduct);
                                                      }
                                                      if (productArrayList.size()>0){

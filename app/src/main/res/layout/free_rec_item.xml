@@ -4,11 +4,17 @@
     android:layout_height="85dp"
     android:layoutDirection="rtl"
     android:id="@+id/container_lay"
+
+
     >
+
+
+
     <LinearLayout
         android:layout_marginTop="@dimen/margin2"
         android:layout_marginRight="@dimen/margin2"
         android:layout_marginLeft="@dimen/margin2"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -66,5 +72,15 @@
                 android:src="@drawable/rec1_sample"
                 />
         </LinearLayout>
+
     </LinearLayout>
+
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/black"
+        android:id="@+id/line"/>
+
 </RelativeLayout>

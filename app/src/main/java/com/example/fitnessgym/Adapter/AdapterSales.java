@@ -2,9 +2,7 @@ package com.example.fitnessgym.Adapter;
 
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import es.dmoral.toasty.Toasty;
 
 import com.example.fitnessgym.Constants;
-import com.example.fitnessgym.Model.ModelClasses;
-import com.example.fitnessgym.Model.ModelProduct;
+import com.example.fitnessgym.Model.ModelOrders;
 import com.example.fitnessgym.R;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -28,24 +25,24 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 
 
-public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder> {
+public class AdapterSales extends RecyclerView.Adapter<AdapterSales.ViewHolder> {
 
-    ArrayList<ModelProduct> modelProductArrayList;
+    ArrayList<ModelOrders> modelOrdersArrayList;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Activity activity;
     SharedPreferences sp;
 
-    public AdapterProduct(Activity activity, ArrayList<ModelProduct> modelProducts) {
+    public AdapterSales(Activity activity, ArrayList<ModelOrders> modelOrders) {
         this.mInflater = LayoutInflater.from(activity);
-        this.modelProductArrayList = modelProducts;
+        this.modelOrdersArrayList = modelOrders;
         this.activity = activity;
     }
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.main_product_rec_items, parent, false);
+        View view = mInflater.inflate(R.layout.main_orders_rec_items, parent, false);
 
 
         return new ViewHolder(view);
@@ -54,22 +51,26 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final ModelProduct item = modelProductArrayList.get(position);
+        final ModelOrders item = modelOrdersArrayList.get(position);
 
-        holder.textView_price.setText(item.getPrice());
-        holder.textView_title.setText(item.getName());
-        String product_id = item.getId();
-        sp = activity.getSharedPreferences("data", 0);
-        String mem_id = sp.getString("id", "");
+        holder.textView_price.setText(item.getPro_price());
+        holder.textView_title.setText("اسم المنتج :"+" " +item.getPro_name());
+        holder.textView_order_status.setText("حالة الطلب :"+" " +item.getOrder_status());
+        holder.textView_details.setText("تفاصيل المنتج : "+" " +item.getPro_details());
+        String or_id = item.getOr_id();
+
 
 //        Glide.with(activity).load("").into(holder.imageView);
 
         holder.btn_sale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Toast.makeText(activity, "قريبا" , Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(activity, "قريبا" , Toast.LENGTH_SHORT).show();
 
-                saleFunction(product_id,mem_id);
+                deleteFunction(or_id,position);
+
+
+
 
 
 
@@ -82,7 +83,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
     @Override
     public int getItemCount() {
-        return modelProductArrayList.size();
+        return modelOrdersArrayList.size();
     }
 
     // allows clicks events to be caught
@@ -98,7 +99,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView cardView_container;
-        TextView textView_title, textView_price;
+        TextView textView_title, textView_price,textView_details,textView_order_status;
         ImageView imageView;
         AppCompatButton btn_sale;
 
@@ -109,6 +110,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             textView_title = itemView.findViewById(R.id.title);
             imageView = itemView.findViewById(R.id.img);
             btn_sale = itemView.findViewById(R.id.btnSale);
+            textView_details = itemView.findViewById(R.id.pro_details);
+            textView_order_status = itemView.findViewById(R.id.order_status);
+
 
             itemView.setOnClickListener(this);
         }
@@ -118,7 +122,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
     }
-    public void saleFunction(String pro_id,String mem_id) {
+    public void deleteFunction(String or_id,int position) {
 
 
         if (true) { //Username and Password Validation
@@ -142,10 +146,8 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
 
             Ion.with(activity)
-                    .load("POST", Constants.Order_url)
+                    .load("DELETE", Constants.Order_url+"?or_id="+or_id)
                     .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
-                    .setBodyParameter("pro_id",pro_id)
-                    .setBodyParameter("mem_id", mem_id)
                     .asString()
                     .setCallback(new FutureCallback<String>() {
                                      @Override
@@ -163,9 +165,12 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
 
 
-                                                 if (response.contains("success")) {
+                                                 if (response.contains("Success")) {
 
-                                                     Toasty.success(activity, "Order Send", Toast.LENGTH_LONG).show();
+                                                     Toasty.success(activity, "Order deleted", Toast.LENGTH_LONG).show();
+                                                     removeAt(position);
+
+
 
 
 
@@ -189,6 +194,11 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
 
 
+    }
+    public void removeAt(int position) {
+        modelOrdersArrayList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, modelOrdersArrayList.size());
     }
 
 }

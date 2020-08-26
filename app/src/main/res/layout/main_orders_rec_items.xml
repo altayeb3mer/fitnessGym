@@ -21,38 +21,41 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_main_rec2_sample"/>
-
             <LinearLayout
+                android:background="@color/slideBgTrans"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:background="@color/slideBgTrans"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/margin4"
                     android:text="500"
-                    android:textColor="@android:color/white"
                     android:textSize="@dimen/caption"
-                    android:textStyle="bold" />
-
+                    android:textStyle="bold"
+                    android:layout_marginRight="@dimen/margin4"
+                    android:textColor="@android:color/white"/>
                 <TextView
+                    android:layout_marginRight="@dimen/margin1"
+                    android:layout_marginLeft="@dimen/margin1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin1"
-                    android:layout_marginRight="@dimen/margin1"
                     android:text="ج س/شهر"
-                    android:textColor="@android:color/white"
                     android:textSize="@dimen/caption"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
             <TextView
                 android:id="@+id/title"
                 android:layout_centerVertical="true"
@@ -64,6 +67,29 @@
                 android:layout_marginRight="@dimen/margin4"
                 android:layout_marginLeft="@dimen/margin4"
                 android:textColor="@color/txtPrimary"/>
+            <TextView
+                android:id="@+id/pro_details"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حبل نط"
+                android:textSize="@dimen/body1"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin4"
+                android:textColor="@color/txtPrimary"/>
+            <TextView
+                android:id="@+id/order_status"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حبل نط"
+                android:textSize="@dimen/body1"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin4"
+                android:textColor="@color/txtPrimary"/>
+            </LinearLayout>
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSale"
                 android:layout_width="75dp"
@@ -71,10 +97,10 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginRight="@dimen/margin4"
                 android:layout_marginLeft="@dimen/margin4"
-                android:background="@drawable/intro_btn_bg"
+                android:background="@drawable/bg_delete_button"
                 android:layout_marginBottom="@dimen/margin2"
                 android:layout_marginTop="@dimen/margin2"
-                android:text="شراء"
+                android:text="حذف"
                 android:textColor="@android:color/white"
                 android:layout_centerVertical="true"
                 />

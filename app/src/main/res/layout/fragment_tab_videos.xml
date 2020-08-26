@@ -38,10 +38,12 @@
                 android:orientation="vertical"
                 android:background="@drawable/add_video_lay_bg">
                 <LinearLayout
+                    android:id="@+id/upload_video"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:orientation="horizontal"
                     android:gravity="center"
+
                     android:background="@drawable/intro_btn_bg">
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,18 +75,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <androidx.appcompat.widget.AppCompatRadioButton
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="زومبا | السبت - الاثنين - الاربعاء | 02:00:00"-->
+<!--                    android:textSize="@dimen/caption"-->
+<!--                    android:textColor="@color/txtSecondary"/>-->
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="ايربكس | السبت - الاثنين - الاربعاء | 02:00:00"-->
+<!--                    android:textSize="@dimen/caption"-->
+<!--                    android:textColor="@color/txtSecondary"/>-->
+
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="زومبا | السبت - الاثنين - الاربعاء | 02:00:00"
-                    android:textSize="@dimen/caption"
-                    android:textColor="@color/txtSecondary"/>
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ايربكس | السبت - الاثنين - الاربعاء | 02:00:00"
-                    android:textSize="@dimen/caption"
-                    android:textColor="@color/txtSecondary"/>
+                    android:layout_height="wrap_content"/>
             </RadioGroup>
 
             <TextView

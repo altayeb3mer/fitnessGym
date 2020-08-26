@@ -25,7 +25,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Activity.SubscribeActivity"></activity>
+        <activity android:name=".Activity.SubscribeClassDetails"></activity>
+        <activity android:name=".Activity.SubscribeActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"
