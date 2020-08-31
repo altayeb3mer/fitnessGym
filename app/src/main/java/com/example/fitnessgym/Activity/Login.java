@@ -108,6 +108,15 @@ public class Login extends ToolbarClass {
 //                    .setDimAmount(0.5f)
 //                    .show();
 
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(Login.this)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
+
 
             Ion.with(getApplicationContext())
                     .load("POST",Constants.login_url)
@@ -118,6 +127,7 @@ public class Login extends ToolbarClass {
                     .setCallback(new FutureCallback<String>() {
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
 
                                          //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();

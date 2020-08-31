@@ -1,6 +1,10 @@
 package com.example.fitnessgym.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,8 +15,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.fitnessgym.Activity.MainActivity;
 import com.example.fitnessgym.Adapter.AdapterSales;
 import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelOrders;
@@ -96,6 +103,7 @@ public class FragmentTabSales extends Fragment {
                                                          modelorders.setPro_details(jsonObject1.getString("pro_details"));
                                                          modelorders.setPro_category(jsonObject1.getString("pro_category"));
                                                          modelorders.setPro_price(jsonObject1.getString("price"));
+                                                         modelorders.setPro_img(jsonObject1.getString("pro_img"));
                                                          Log.d("login_response", "2");
 
 
@@ -106,11 +114,13 @@ public class FragmentTabSales extends Fragment {
                                                      if (ordersArrayList.size()>0){
                                                          adapterOrders = new AdapterSales(getActivity(), ordersArrayList);
                                                          recyclerOrders.setAdapter(adapterOrders);
+                                                         progressLay.setVisibility(View.GONE);
                                                      }
 
 
                                                  } else {
-                                                     Toasty.warning(getContext(), "لا توجد مشتريات", Toast.LENGTH_LONG).show();
+                                                     NoItemLay.setVisibility(View.VISIBLE);
+                                                     progressLay.setVisibility(View.GONE);
 //
 
                                                  }
@@ -129,13 +139,41 @@ public class FragmentTabSales extends Fragment {
 
     }
 
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert cm != null;
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+    LinearLayout NoItemLay;
+    ProgressBar progressLay;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_tab_sales, container, false);
 
         //init();
-        initAdapterSales();
+
+
+
+            progressLay = view.findViewById(R.id.progressLay);
+            NoItemLay = view.findViewById(R.id.NoItemLay);
+        if (isOnline()) {
+            initAdapterSales();
+        } else {
+            Toast.makeText(getActivity(), "تعذر الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
+        }
+
+        view.findViewById(R.id.btnSale).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.putExtra("page","product");
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

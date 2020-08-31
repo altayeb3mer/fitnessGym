@@ -67,7 +67,7 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
 
                 Intent intent =new Intent(activity, ClassDetails.class);
                 intent.putExtra("id",item.getId());
-//                intent.putExtra("class_name", item.getName());
+                intent.putExtra("class_name", item.getName());
 //                intent.putExtra("couch_name", item.getCouch());
 //                intent.putExtra("price_d", item.getSub_d_price());
 //                intent.putExtra("price_m", item.getPrice());

@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 
 import com.example.fitnessgym.Constants;
 import com.google.android.material.textfield.TextInputEditText;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -46,6 +47,10 @@ public class SubscribeActivity extends AppCompatActivity {
         sp = getSharedPreferences("data", 0);
         phone.setText(sp.getString("mem_phone","0"));
         email.setText(sp.getString("mem_email",""));
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        assert extras != null;
+        ((TextView)findViewById(R.id.class_name)).setText(extras.getString("class_name"));
         findViewById(R.id.subscribe).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +143,14 @@ public class SubscribeActivity extends AppCompatActivity {
 //                    .setAnimationSpeed(2)
 //                    .setDimAmount(0.5f)
 //                    .show();
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(SubscribeActivity.this)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
 
             String mem_id = sp.getString("id", "");
             Log.e("id_of_user",mem_id);
@@ -149,10 +162,12 @@ public class SubscribeActivity extends AppCompatActivity {
                     .setBodyParameter("subtype",sub_type)
                     .setBodyParameter("phoneid",phone.getText().toString())
                     .setBodyParameter("emailid",email.getText().toString())
+                    .setBodyParameter("join_date","10-10")
                     .asString()
                     .setCallback(new FutureCallback<String>() {
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
 
                                          //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
@@ -162,14 +177,15 @@ public class SubscribeActivity extends AppCompatActivity {
                                                  Toasty.warning(getApplicationContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
 
                                              } else {
-
-                                                 Toasty.success(getApplicationContext(), "Subscribe Successful", Toast.LENGTH_LONG).show();
-
-
-                                                 if (response.contains("data")) {
+                                                 Log.d("login_response", response);
 
 
 
+                                                 if (response.contains("Success")) {
+
+
+
+                                                     Toasty.success(getApplicationContext(), "Subscribe Successful", Toast.LENGTH_LONG).show();
 
 
 

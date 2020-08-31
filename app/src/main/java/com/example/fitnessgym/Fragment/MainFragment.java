@@ -32,6 +32,7 @@ import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapePathModel;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
@@ -260,7 +261,14 @@ public class MainFragment extends Fragment {
         if (true) { //Username and Password Validation
 
 
-
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(getActivity())
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
             Ion.with(getContext())
                     .load("POST", Constants.Products_url)
                     .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
@@ -268,6 +276,7 @@ public class MainFragment extends Fragment {
                     .setCallback(new FutureCallback<String>() {
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
 
                                          //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();
@@ -301,6 +310,7 @@ public class MainFragment extends Fragment {
                                                          modelProduct.setId(jsonObject1.getString("pro_id"));
                                                          modelProduct.setTitle(jsonObject1.getString("pro_details"));
                                                          modelProduct.setCategory(jsonObject1.getString("pro_category"));
+                                                         modelProduct.setImg(jsonObject1.getString("pro_img"));
 
 
 

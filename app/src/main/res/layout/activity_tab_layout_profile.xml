@@ -34,7 +34,7 @@
         android:id="@+id/main_tablayout"
         android:background="@color/colorPrimary"
         app:tabGravity="fill"
-        android:layoutDirection="rtl"
+        android:layoutDirection="ltr"
         tools:targetApi="jelly_bean_mr1"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="#808080"
@@ -42,7 +42,7 @@
         app:tabPaddingStart="10dp"
         app:tabPaddingEnd="10dp"
         />
-    <androidx.viewpager.widget.ViewPager
+    <com.booking.rtlviewpager.RtlViewPager
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -31,6 +31,8 @@ import com.example.fitnessgym.Utils.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener,NavigationView.OnNavigationItemSelectedListener{
     BottomNavigationView bottomNavigationView;
     View nHeader;
@@ -39,12 +41,15 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     //viewPager
+    SharedPreferences preferences;
     private CustomViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_drawer);
+
+
 
         init();
         initNavHeader();
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 //                return true;
 //            }
 //        });
+        preferences= Objects.requireNonNull(getSharedPreferences("data",0));
 
     }
 
@@ -202,6 +208,18 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             case R.id.nav_menu_my_profile: {
                 startActivity(new Intent(getApplicationContext(), TabLayoutProfile.class));
                 drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            }
+            case R.id.nav_logout:{
+
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("token", "");
+
+                editor.putString("user", "");
+                editor.apply();
+                Intent logout=new Intent(getApplicationContext(),Login.class);
+                startActivity(logout);
+                finish();
                 break;
             }
 

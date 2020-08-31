@@ -16,6 +16,7 @@ import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelFree;
 import com.example.fitnessgym.R;
 import com.example.fitnessgym.Utils.ToolbarClass;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.potyvideo.library.AndExoPlayerView;
@@ -62,7 +63,14 @@ public class SubscribeClassDetails extends ToolbarClass {
 
 
         if (true) { //Username and Password Validation
-
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(SubscribeClassDetails.this)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
 
             Intent intent = getIntent();
             Bundle extras = intent.getExtras();
@@ -77,6 +85,7 @@ public class SubscribeClassDetails extends ToolbarClass {
                     .setCallback(new FutureCallback<String>() {
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
 
                                          //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();

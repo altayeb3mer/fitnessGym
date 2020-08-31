@@ -21,6 +21,7 @@ import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.R;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.async.util.Charsets;
 import com.koushikdutta.ion.Ion;
@@ -198,7 +199,14 @@ public class FragmentClasses extends Fragment {
 
         if (true) { //Username and Password Validation
 
-
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(getActivity())
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
 
 
 
@@ -210,6 +218,7 @@ public class FragmentClasses extends Fragment {
 
                                          @Override
                                          public void onCompleted(Exception e, String response) {
+                                             progressDialog.dismiss();
 
 
                                              //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();

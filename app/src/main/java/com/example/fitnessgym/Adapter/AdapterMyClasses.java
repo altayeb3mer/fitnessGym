@@ -3,6 +3,7 @@ package com.example.fitnessgym.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,12 +52,31 @@ public class AdapterMyClasses extends RecyclerView.Adapter<AdapterMyClasses.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ModelClasses item = modelClassesArrayList.get(position);
 
-        holder.textView_name.setText(item.getName());
-        holder.textView_start.setText(item.getStartIn());
-        holder.textView_dates.setText(item.getDates());
-        holder.textView_times.setText(item.getTimes());
-        holder.textView_duration.setText(item.getDuration());
-        holder.textView_subType.setText(item.getSubType());
+        SharedPreferences sp = activity.getSharedPreferences("data", 0);
+        String userType = sp.getString("acc_type", "");
+        Log.d("acc_type",userType);
+            assert userType != null;
+            if (userType.equalsIgnoreCase("user")) {
+
+                holder.textView_name.setText(item.getName());
+                holder.textView_start.setText(item.getStartIn());
+                holder.textView_dates.setText(item.getDates());
+                holder.textView_times.setText(item.getTimes());
+                holder.textView_duration.setText(item.getDuration());
+                holder.textView_subType.setText(item.getSubType());
+            }
+            else if (userType.equalsIgnoreCase("coach")){
+
+
+                holder.textView_name.setText(item.getName());
+                holder.textView_start.setText(item.getStartIn());
+                holder.textView_dates.setText(item.getDates());
+                holder.textView_times.setText(item.getTimes());
+                holder.textView_duration.setText(item.getDuration());
+                holder.textView_subType.setVisibility(View.GONE);
+
+            }
+
 
 //        Glide.with(activity).load("").into(holder.imageView);
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.FragmentTabClass"
     android:gravity="center"
     android:layoutDirection="rtl">
@@ -73,6 +74,7 @@
                 android:layout_marginLeft="@dimen/margin1"
                 android:layout_marginRight="@dimen/margin1"
                 android:layout_width="match_parent"
+                android:id="@+id/classes"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 <!--                <androidx.appcompat.widget.AppCompatRadioButton-->
@@ -92,8 +94,20 @@
 
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_marginTop="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:id="@+id/recyclerClasses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/main_selection_classes_items"
+                    tools:itemCount="5"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    android:orientation="horizontal"
+
+                    android:layoutAnimation="@anim/layout_animation"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    />
             </RadioGroup>
 
             <TextView
@@ -109,17 +123,21 @@
                 android:layout_marginRight="@dimen/margin1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/radioGroupType"
+                android:checkedButton="@id/payed"
                 android:orientation="vertical">
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="مدفوع"
+                    android:id="@+id/payed"
                     android:textSize="@dimen/caption"
                     android:textColor="@color/txtSecondary"/>
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="مجاني"
+                    android:id="@+id/free"
                     android:textSize="@dimen/caption"
                     android:textColor="@color/txtSecondary"/>
             </RadioGroup>
@@ -130,6 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="left"
+                android:id="@+id/btn_upload"
                 android:background="@drawable/login_btn_bg"
                 android:textSize="@dimen/body1"
                 android:text="رفع الفيديو"

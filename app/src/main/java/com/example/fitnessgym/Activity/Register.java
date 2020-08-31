@@ -88,7 +88,14 @@ public class Register extends ToolbarClass {
             // validateUserName()&& validateEmail() && validatePass() && validateCnfPass()
 
 
-
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(Register.this)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
 
             //Validation Success
 
@@ -105,6 +112,7 @@ public class Register extends ToolbarClass {
 
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
                                          Log.e("registerrrrrrrrr", response);
 

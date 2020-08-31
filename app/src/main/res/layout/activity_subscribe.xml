@@ -47,9 +47,21 @@
                     android:orientation="vertical"
                     android:layout_marginRight="@dimen/margin4"
                     android:layout_marginLeft="@dimen/margin4"
+                    android:layout_marginTop="@dimen/body3"
                     >
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="زومبا كلاس"
+                        android:textSize="@dimen/body3"
+                       android:fontFamily="@font/app_font"
+                        android:layout_margin="@dimen/body3"
+                        android:textColor="@color/colorPrimary"
 
+
+                        android:id="@+id/class_name"
+                        tools:ignore="RtlHardcoded" />
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -71,6 +83,7 @@
 
                     <Button
                         android:id="@+id/spn_from_date"
+                        android:visibility="gone"
                         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -88,7 +101,8 @@
                         android:gravity="center">
                         <RadioGroup
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:checkedButton="@id/month">
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:id="@+id/month"

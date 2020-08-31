@@ -21,6 +21,7 @@ import com.example.fitnessgym.Model.ModelOrders;
 import com.example.fitnessgym.R;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -52,7 +53,10 @@ public class AdapterSales extends RecyclerView.Adapter<AdapterSales.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ModelOrders item = modelOrdersArrayList.get(position);
-
+        Picasso
+                .with(activity)
+                .load(item.getPro_img()).placeholder(R.drawable.rec1_sample)
+                .into(holder.imageView);
         holder.textView_price.setText(item.getPro_price());
         holder.textView_title.setText("اسم المنتج :"+" " +item.getPro_name());
         holder.textView_order_status.setText("حالة الطلب :"+" " +item.getOrder_status());

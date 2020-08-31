@@ -7,7 +7,15 @@ public class ModelClasses {
     private String title;
     private String couch;
 
+    public boolean getSelected() {
+        return isSelected;
+    }
 
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+   public boolean isSelected = false;
     private String name;
     private String startIn;
     private String dates;

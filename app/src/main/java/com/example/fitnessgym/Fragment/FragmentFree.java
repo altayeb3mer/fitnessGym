@@ -21,6 +21,7 @@ import com.example.fitnessgym.Constants;
 import com.example.fitnessgym.Model.ModelFood;
 import com.example.fitnessgym.Model.ModelFree;
 import com.example.fitnessgym.R;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
@@ -115,7 +116,14 @@ public class FragmentFree extends Fragment {
         if (true) { //Username and Password Validation
 
 
-
+            final KProgressHUD progressDialog;// Validation
+            progressDialog = KProgressHUD.create(getActivity())
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("الرجاء الانتظار")
+                    .setCancellable(false)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
             Ion.with(getContext())
                     .load("GET", Constants.Video_url+"?vid_tag=free")
                     .setHeader("Cookie","PHPSESSID=hovjuh7hcdh2t70v7hnlb7dj66")
@@ -123,6 +131,7 @@ public class FragmentFree extends Fragment {
                     .setCallback(new FutureCallback<String>() {
                                      @Override
                                      public void onCompleted(Exception e, String response) {
+                                         progressDialog.dismiss();
 
 
                                          //Toasty.error(getApplicationContext(),""+response,Toast.LENGTH_LONG).show();

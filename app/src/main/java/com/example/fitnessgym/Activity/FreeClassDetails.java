@@ -32,11 +32,13 @@ public class FreeClassDetails extends ToolbarClass {
 
     public static final int REQUEST_CALL = 1;
     AndExoPlayerView andExoPlayerView;
+    TextView category;
 
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         super.onCreate(R.layout.activity_free_class_details, "الصف المجاني");
+        category = findViewById(R.id.category);
         andExoPlayerView = findViewById(R.id.player);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -48,7 +50,7 @@ public class FreeClassDetails extends ToolbarClass {
                         String error = e.getMessage();
                         Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
                     }
-        ((TextView)findViewById(R.id.category)).setText("التصنيف:"+extras.getString("class_name"));
+       category.setText("التصنيف:"+extras.getString("class_name"));
 
         initAdapterFree();
 
@@ -109,7 +111,7 @@ public class FreeClassDetails extends ToolbarClass {
                                                          modelFreeArrayList.add(modelFree);
                                                      }
                                                      if (modelFreeArrayList.size()>0){
-                                                         adapterFree = new AdapterFree(FreeClassDetails.this,modelFreeArrayList);
+                                                         adapterFree = new AdapterFree(FreeClassDetails.this,modelFreeArrayList,category,andExoPlayerView);
                                                          recyclerFree.setAdapter(adapterFree);
                                                      }
 

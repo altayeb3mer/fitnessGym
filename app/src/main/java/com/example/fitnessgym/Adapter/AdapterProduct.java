@@ -24,6 +24,7 @@ import com.example.fitnessgym.Model.ModelProduct;
 import com.example.fitnessgym.R;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -55,7 +56,10 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ModelProduct item = modelProductArrayList.get(position);
-
+        Picasso
+                .with(activity)
+                .load(item.getImg()).placeholder(R.drawable.rec1_sample)
+                .into(holder.imageView);
         holder.textView_price.setText(item.getPrice());
         holder.textView_title.setText(item.getName());
         String product_id = item.getId();

@@ -38,6 +38,7 @@ public class ClassDetails extends ToolbarClass {
     TextView class_name,couch_name,price_m,price_d,duration,days;
     ImageView image;
     String class_id;
+
     SharedPreferences sp;
 
     protected final void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,10 @@ else{
                 Bundle extras = intent.getExtras();
                 assert extras != null;
                 String class_id = extras.getString("id");
+
                 Intent intent1 = new Intent(getApplicationContext(),SubscribeActivity.class);
                 intent1.putExtra("class_id", class_id);
+                intent1.putExtra("class_name", extras.getString("class_name"));
                startActivity(intent1);}
 
             }
@@ -273,8 +276,11 @@ else{
 
                                                             String status=jsonObject1.getString("status");
 
-
-                                                            if(status.equals("FALSE")){
+                                                         SharedPreferences sp = getSharedPreferences("data", 0);
+                                                         String userType = sp.getString("acc_type", "");
+                                                         Log.d("acc_type",userType);
+                                                         assert userType != null;
+                                                            if(status.equals("FALSE")&&userType.equalsIgnoreCase("user")){
 
                                                                 findViewById(R.id.join_button).setVisibility(View.VISIBLE);
                                                             }

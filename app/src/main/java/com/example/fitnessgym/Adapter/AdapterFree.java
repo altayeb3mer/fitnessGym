@@ -21,6 +21,7 @@ import com.example.fitnessgym.Activity.FreeClassDetails;
 import com.example.fitnessgym.Model.ModelClasses;
 import com.example.fitnessgym.Model.ModelFree;
 import com.example.fitnessgym.R;
+import com.potyvideo.library.AndExoPlayerView;
 
 import java.util.ArrayList;
 
@@ -32,12 +33,27 @@ public class AdapterFree extends RecyclerView.Adapter<AdapterFree.ViewHolder> {
     private ItemClickListener mClickListener;
     private Activity activity;
 
+    AndExoPlayerView andExoPlayerView;
+    TextView category;
+    int x = 0;
+
+    public AdapterFree(Activity activity, ArrayList<ModelFree> modelFrees,TextView category , AndExoPlayerView andExoPlayerView) {
+        this.mInflater = LayoutInflater.from(activity);
+        this.modelFreeArrayList = modelFrees;
+        this.activity = activity;
+        this.category = category;
+        this.andExoPlayerView=andExoPlayerView;
+        x=0;
+
+    }
     public AdapterFree(Activity activity, ArrayList<ModelFree> modelFrees) {
         this.mInflater = LayoutInflater.from(activity);
         this.modelFreeArrayList = modelFrees;
         this.activity = activity;
-    }
+        x=1;
 
+
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -63,14 +79,17 @@ public class AdapterFree extends RecyclerView.Adapter<AdapterFree.ViewHolder> {
         holder.lay_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                if(x==0) {
+                    category.setText(item.getCategory());
+                    andExoPlayerView.setSource(item.getVid_url());
+                }
+else if(x==1){
                 Intent intent =new Intent(activity, FreeClassDetails.class);
                 intent.putExtra("class_name", item.getCategory());
                 intent.putExtra("couch_name", item.getCouch());
                 intent.putExtra("video_url", item.getVid_url());
                 activity.startActivity(intent);
-            }
+            }}
         });
     }
 

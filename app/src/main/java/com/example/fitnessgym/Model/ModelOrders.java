@@ -7,7 +7,20 @@ public class ModelOrders {
     String mem_id;
     String pro_id;
     String order_date;
-    String pro_name, pro_details, pro_price, pro_category;
+    String pro_name;
+    String pro_details;
+    String pro_price;
+    String pro_category;
+
+    public String getPro_img() {
+        return pro_img;
+    }
+
+    public void setPro_img(String pro_img) {
+        this.pro_img = pro_img;
+    }
+
+    String pro_img;
 
     public String getPro_name() {
         return pro_name;

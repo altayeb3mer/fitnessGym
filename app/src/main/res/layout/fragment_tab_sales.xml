@@ -62,6 +62,43 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/progressLay"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:indeterminate="true"
 
+        android:indeterminateTint="@color/white"
+        tools:targetApi="lollipop" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/NoItemLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:focusable="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="لم تقم بشراء منتجات"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSale"
+            android:text="المنتجات"
+            android:layout_margin="30dp"
+            android:textSize="@dimen/body3"
+
+            android:background="@drawable/login_btn_bg"
+            android:fontFamily="@font/app_font"/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -52,12 +52,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:orientation="vertical"
         android:clickable="true"
         android:focusable="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="لم تقم بالاشتراك في احد الكلاسات حتى الان"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnClasses"
+            android:text="الكلاسات"
+            android:layout_margin="30dp"
+            android:textSize="@dimen/body3"
+
+            android:background="@drawable/login_btn_bg"
+            android:fontFamily="@font/app_font"/>
     </LinearLayout>
 
 </RelativeLayout>

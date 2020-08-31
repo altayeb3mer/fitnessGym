@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.fitnessgym"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -43,7 +43,10 @@ dependencies {
     implementation 'com.github.GrenderG:Toasty:1.4.2'
     implementation 'com.kaopiz:kprogresshud:1.1.0'
     implementation 'com.wdullaer:materialdatetimepicker:3.2.0'
+    implementation 'com.booking:rtlviewpager:1.0.1'
 
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+    implementation 'com.google.android.exoplayer:exoplayer:r2.1.1'
     //video player
     implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:1.0.15'
     //circle imageView

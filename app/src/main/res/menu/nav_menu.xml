@@ -12,11 +12,7 @@
             android:title="ملفي الشخصي"
             android:icon="@drawable/ic_menu_profile"
             />
-        <item
-            android:id="@+id/nav_menu_about_us"
-            android:title="عن التطبيق"
-            android:icon="@drawable/ic_menu_about"
-            />
+
         </group>
 
         <group android:checkableBehavior="none"
@@ -37,5 +33,15 @@
                     android:icon="@drawable/ic_menu_web"
                     />
         </group>
+        <item
+            android:id="@+id/nav_menu_about_us"
+            android:title="عن التطبيق"
+            android:icon="@drawable/ic_menu_about"
+            />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="تسجيل الخروج"
+            android:icon="@drawable/ic_logout"
+            />
 
 </menu>
