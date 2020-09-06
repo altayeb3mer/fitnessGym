@@ -134,7 +134,7 @@ public class Login extends ToolbarClass {
                                          try {
 
                                              if ((e != null)) {
-                                                 Toasty.warning(getApplicationContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+                                                 Toasty.warning(getApplicationContext(), "تحقق من اتصال الانترنت", Toast.LENGTH_LONG).show();
 
                                              } else {
                                                  Log.d("login_response", response);
@@ -146,7 +146,7 @@ public class Login extends ToolbarClass {
 
 
 
-                                                     Toasty.success(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
+                                                     Toasty.success(getApplicationContext(), "تم تسجيل الدخول بنجاح", Toast.LENGTH_LONG).show();
 
 
 
@@ -172,7 +172,7 @@ public class Login extends ToolbarClass {
 
 
                                                  } else {
-                                                     Toasty.warning(getApplicationContext(), "Check Your Data", Toast.LENGTH_LONG).show();
+                                                     Toasty.warning(getApplicationContext(), "تحقق من البيانات", Toast.LENGTH_LONG).show();
 //
 
                                                  }

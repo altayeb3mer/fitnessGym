@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.TabLayoutProfile"
-    android:layoutDirection="rtl">
+   >
 
 
     <androidx.cardview.widget.CardView
@@ -34,7 +34,8 @@
         android:id="@+id/main_tablayout"
         android:background="@color/colorPrimary"
         app:tabGravity="fill"
-        android:layoutDirection="ltr"
+        android:layoutDirection="rtl"
+
         tools:targetApi="jelly_bean_mr1"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="#808080"
@@ -42,12 +43,12 @@
         app:tabPaddingStart="10dp"
         app:tabPaddingEnd="10dp"
         />
-    <com.booking.rtlviewpager.RtlViewPager
+    <klogi.com.RtlViewPager
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_viewpager"
         android:layout_below="@+id/main_tablayout"
         android:rotation="360"
-        android:rotationY="360"/>
+        android:rotationY="180"/>
 </RelativeLayout>

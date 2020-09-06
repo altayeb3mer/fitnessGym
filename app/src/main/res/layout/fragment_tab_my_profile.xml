@@ -5,16 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FragmentTabClass"
     android:background="@color/colorBg"
+
+
     android:gravity="center">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:rotationY="180">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
+
             android:layout_margin="@dimen/margin2">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img"
@@ -32,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="اسم المستخدم"
+                    android:layoutDirection="rtl"
                     android:text="هناء"
                     android:textSize="@dimen/body1"
                     android:drawableRight="@drawable/ic_person"

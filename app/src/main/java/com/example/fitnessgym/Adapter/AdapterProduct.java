@@ -161,7 +161,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                                          try {
 
                                              if ((e != null)) {
-                                                 Toasty.warning(activity, "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+                                                 Toasty.warning(activity, "تحقق من اتصال الانترنت", Toast.LENGTH_LONG).show();
 
                                              } else {
 
@@ -169,7 +169,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
                                                  if (response.contains("success")) {
 
-                                                     Toasty.success(activity, "Order Send", Toast.LENGTH_LONG).show();
+                                                     Toasty.success(activity, "تم ارسال الطلب", Toast.LENGTH_LONG).show();
 
 
 

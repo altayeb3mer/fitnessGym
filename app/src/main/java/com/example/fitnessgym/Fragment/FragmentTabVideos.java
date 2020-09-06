@@ -193,7 +193,7 @@ public class FragmentTabVideos extends Fragment {
                                          try {
 
                                              if ((e != null)) {
-                                                 Toasty.warning(getContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+                                                 Toasty.warning(getContext(), "تحقق من اتصال الانترنت", Toast.LENGTH_LONG).show();
 
                                              } else {
                                                  Log.d("login_response", response);

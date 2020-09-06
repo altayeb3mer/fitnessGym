@@ -66,7 +66,7 @@ public class VideoActivity extends AppCompatActivity {
                 if (video != null){
                     uploadFile();
                 }else{
-                    Toast.makeText(VideoActivity.this, "Please select a video", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VideoActivity.this, "الرجاء اختيار فيديو", Toast.LENGTH_SHORT).show();
                 }
             }
         });

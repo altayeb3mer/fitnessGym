@@ -218,7 +218,7 @@ upload_btn.setOnClickListener(new View.OnClickListener() {
                         try {
 
                             if ((e != null)) {
-                                Toasty.warning(activity, "Please Check Internet Connection  "+ e, Toast.LENGTH_LONG).show();
+                                Toasty.warning(activity, "تحقق من اتصال الانترنت  "+ e, Toast.LENGTH_LONG).show();
 
                             } else {
 

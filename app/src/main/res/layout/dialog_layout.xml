@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/acc_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="رقم الحساب"
+
+            android:imeOptions="actionDone"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/acc_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="اسم صاحب الحساب "
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:hint="ملاحظة "
+            android:imeOptions="actionDone"
+           />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>

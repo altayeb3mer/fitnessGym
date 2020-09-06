@@ -36,7 +36,7 @@ public class SubscribeActivity extends AppCompatActivity {
     SharedPreferences sp;
     TextInputEditText phone;
     TextInputEditText email;
-    String sub_type;
+    String sub_type="month";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,7 +174,7 @@ public class SubscribeActivity extends AppCompatActivity {
                                          try {
 
                                              if ((e != null)) {
-                                                 Toasty.warning(getApplicationContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+                                                 Toasty.warning(getApplicationContext(), "تحقق من اتصال الانترنت", Toast.LENGTH_LONG).show();
 
                                              } else {
                                                  Log.d("login_response", response);
@@ -185,7 +185,7 @@ public class SubscribeActivity extends AppCompatActivity {
 
 
 
-                                                     Toasty.success(getApplicationContext(), "Subscribe Successful", Toast.LENGTH_LONG).show();
+                                                     Toasty.success(getApplicationContext(), "تم الاشتراك بنجاح", Toast.LENGTH_LONG).show();
 
 
 

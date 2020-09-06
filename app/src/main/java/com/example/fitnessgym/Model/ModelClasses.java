@@ -7,6 +7,25 @@ public class ModelClasses {
     private String title;
     private String couch;
 
+    public String getSub_id() {
+        return sub_id;
+    }
+
+    public void setSub_id(String sub_id) {
+        this.sub_id = sub_id;
+    }
+
+    String sub_id;
+
+    public String getMem_status() {
+        return mem_status;
+    }
+
+    public void setMem_status(String mem_status) {
+        this.mem_status = mem_status;
+    }
+
+    String mem_status;
     public boolean getSelected() {
         return isSelected;
     }

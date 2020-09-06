@@ -92,7 +92,7 @@ public class SubscribeClassDetails extends ToolbarClass {
                                          try {
 
                                              if ((e != null)) {
-                                                 Toasty.warning(getApplicationContext(), "Please Check Internet Connection", Toast.LENGTH_LONG).show();
+                                                 Toasty.warning(getApplicationContext(), "تحقق من اتصال الانترنت", Toast.LENGTH_LONG).show();
 
                                              } else {
                                                  Log.d("login_response", response);

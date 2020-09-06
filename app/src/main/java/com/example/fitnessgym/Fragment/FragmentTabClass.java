@@ -37,9 +37,12 @@ public class FragmentTabClass extends Fragment {
 
 
     View view;
-    RecyclerView recyclerClasses;
+    RecyclerView recyclerReqClasses;
+    RecyclerView recyclerSubClasses;
     AdapterMyClasses adapterClasses;
-    ArrayList<ModelClasses> modelFoodArrayList;
+
+    ArrayList<ModelClasses> modelReqClassArrayList;
+    ArrayList<ModelClasses> modelSubClassArrayList;
     LinearLayout NoItemLay;
     ProgressBar progressLay;
 
@@ -99,7 +102,7 @@ public class FragmentTabClass extends Fragment {
 
 
 
-        modelFoodArrayList = new ArrayList<>();
+        modelReqClassArrayList = new ArrayList<>();
         progressLay.setVisibility(View.VISIBLE);
         NoItemLay.setVisibility(View.GONE);
         SharedPreferences sp = getActivity().getSharedPreferences("data", 0);
@@ -151,13 +154,13 @@ public class FragmentTabClass extends Fragment {
 
 
 
-                                                     modelFoodArrayList.add(modelClasses);
+                                                     modelReqClassArrayList.add(modelClasses);
                                                  }
 
-                                                 initAdapterClasses(modelFoodArrayList);
+                                                 initAdapterReqClasses(modelReqClassArrayList);
 
                                              } else {
-                                                 initAdapterClasses(modelFoodArrayList);
+                                                 initAdapterReqClasses(modelReqClassArrayList);
 //
 
                                              }
@@ -177,12 +180,15 @@ public class FragmentTabClass extends Fragment {
     private void init() {
         progressLay = view.findViewById(R.id.progressLay);
         NoItemLay = view.findViewById(R.id.NoItemLay);
-        recyclerClasses = view.findViewById(R.id.recyclerFood);
-        recyclerClasses.setNestedScrollingEnabled(false);
+        recyclerReqClasses = view.findViewById(R.id.recyclerFood);
+        recyclerSubClasses = view.findViewById(R.id.recyclerSubscribe);
+
+        recyclerReqClasses.setNestedScrollingEnabled(false);
+        recyclerSubClasses.setNestedScrollingEnabled(false);
 
     }
 
-    private void initAdapterClasses(ArrayList<ModelClasses> list) {
+    private void initAdapterReqClasses(ArrayList<ModelClasses> list) {
 
 
 //        for (int i = 0; i < 10; i++) {
@@ -197,7 +203,7 @@ public class FragmentTabClass extends Fragment {
 //        }
         if (list.size() > 0) {
             adapterClasses = new AdapterMyClasses(getActivity(), list);
-            recyclerClasses.setAdapter(adapterClasses);
+            recyclerReqClasses.setAdapter(adapterClasses);
             progressLay.setVisibility(View.GONE);
         } else {
 //            Toast.makeText(getContext(), "لم يت العثور على كلاسات", Toast.LENGTH_SHORT).show();
@@ -205,9 +211,33 @@ public class FragmentTabClass extends Fragment {
             progressLay.setVisibility(View.GONE);
         }
     }
+    private void initAdapterSubClasses(ArrayList<ModelClasses> list) {
+
+
+//        for (int i = 0; i < 10; i++) {
+//            ModelClasses modelClasses =new ModelClasses();
+//            modelClasses.setName("زومبا");
+//            modelClasses.setStartIn("1-7-2020  02:00:00");
+//            modelClasses.setDates("الحد - الاثنين - الخميس");
+//            modelClasses.setTimes("02:00:00");
+//            modelClasses.setDuration("2 ساعة");
+//            modelClasses.setSubType("شهري");
+//            modelFoodArrayList.add(modelClasses);
+//        }
+    if (list.size() > 0) {
+            adapterClasses = new AdapterMyClasses(getActivity(), list);
+            recyclerSubClasses.setAdapter(adapterClasses);
+            progressLay.setVisibility(View.GONE);
+        } else {
+//            Toast.makeText(getContext(), "لم يت العثور على كلاسات", Toast.LENGTH_SHORT).show();
+//            NoItemLay.setVisibility(View.VISIBLE);
+//            progressLay.setVisibility(View.GONE);
+        }
+    }
 
     private void GetMyClasses() {
-        modelFoodArrayList = new ArrayList<>();
+        modelReqClassArrayList = new ArrayList<>();
+        modelSubClassArrayList = new ArrayList<>();
         progressLay.setVisibility(View.VISIBLE);
         NoItemLay.setVisibility(View.GONE);
         SharedPreferences sp = getActivity().getSharedPreferences("data", 0);
@@ -238,18 +268,21 @@ public class FragmentTabClass extends Fragment {
 
                                                  JSONArray jsonArray = jsonObject.getJSONArray("data");
                                                  for (int i = 0; i < jsonArray.length(); i++) {
+
                                                      JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                                                      ModelClasses modelClasses = new ModelClasses();
-                                                     modelClasses.setId(jsonObject1.getString("class_id"));
-                                                     modelClasses.setName(jsonObject1.getString("class_name"));
-                                                     modelClasses.setStartIn(jsonObject1.getString("start_date"));
-                                                     modelClasses.setDates(jsonObject1.getString("class_days"));
-                                                     modelClasses.setTimes(jsonObject1.getString("class_time"));
-                                                     modelClasses.setDuration(jsonObject1.getString("class_duration")+" "+"ساعة");
-                                                     modelClasses.setSubType(jsonObject1.getString("sub_type"));
+                                                     modelClasses.setSub_id(jsonObject1.getString("sub_id"));
+                                                         modelClasses.setId(jsonObject1.getString("class_id"));
+                                                         modelClasses.setName(jsonObject1.getString("class_name"));
+                                                         modelClasses.setStartIn(jsonObject1.getString("start_date"));
+                                                         modelClasses.setDates(jsonObject1.getString("class_days"));
+                                                         modelClasses.setTimes(jsonObject1.getString("class_time"));
+                                                         modelClasses.setDuration(jsonObject1.getString("class_duration") + " " + "ساعة");
+                                                         modelClasses.setSubType(jsonObject1.getString("sub_type"));
+                                                         modelClasses.setMem_status(jsonObject1.getString("mem_status"));
 
-                                                     //sub_type
+                                                         //sub_type
 
 //                                                     modelClasses.setStartIn("1-7-2020  02:00:00");
 //                                                     modelClasses.setDates("الحد - الاثنين - الخميس");
@@ -257,15 +290,20 @@ public class FragmentTabClass extends Fragment {
 //                                                     modelClasses.setDuration("2 ساعة");
 //                                                     modelClasses.setSubType("شهري");
 
+                                                     if (jsonObject1.getString("mem_status").equalsIgnoreCase("Requested")) {
 
+                                                         modelReqClassArrayList.add(modelClasses);
+                                                     }
+                                                     else {
+                                                         modelSubClassArrayList.add(modelClasses);
+                                                     }
+                                                     }
 
-                                                     modelFoodArrayList.add(modelClasses);
-                                                 }
-
-                                                 initAdapterClasses(modelFoodArrayList);
+                                                     initAdapterReqClasses(modelReqClassArrayList);
+                                                 initAdapterSubClasses(modelSubClassArrayList);
 
                                              } else {
-                                                 initAdapterClasses(modelFoodArrayList);
+                                                 initAdapterReqClasses(modelReqClassArrayList);
 //
 
                                              }

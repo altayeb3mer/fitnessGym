@@ -6,16 +6,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.FragmentTabClass"
     android:gravity="center"
+    android:rotationY="180"
     android:background="@color/colorBg">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="طلبات الاشتراك"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/app_font"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerFood"
                 android:layout_width="match_parent"
@@ -28,49 +47,82 @@
                 android:layoutAnimation="@anim/layout_animation"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 />
+            <ProgressBar
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/progressLay"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                tools:targetApi="lollipop" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/NoItemLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="لم تقم بالاشتراك في احد الكلاسات حتى الان"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/btnClasses"
+                    android:text="انضم الان "
+                    android:layout_width="match_parent"
+                    android:layout_margin="16dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="left"
+                    android:background="@drawable/login_btn_bg"
+                    android:textSize="@dimen/body1"
+
+                    android:textColor="@color/white"/>
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="60dp"/>
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="الطلبات المكتملة"
+                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/app_font"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerSubscribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/my_pro_class_item"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+
+                android:layoutAnimation="@anim/layout_animation"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                />
+
         </LinearLayout>
+
+
     </androidx.core.widget.NestedScrollView>
 
 
-    <ProgressBar
-        android:visibility="gone"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/progressLay"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/white"
-        tools:targetApi="lollipop" />
 
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/NoItemLay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:clickable="true"
-        android:focusable="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="لم تقم بالاشتراك في احد الكلاسات حتى الان"/>
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnClasses"
-            android:text="الكلاسات"
-            android:layout_margin="30dp"
-            android:textSize="@dimen/body3"
-
-            android:background="@drawable/login_btn_bg"
-            android:fontFamily="@font/app_font"/>
-    </LinearLayout>
 
 </RelativeLayout>
