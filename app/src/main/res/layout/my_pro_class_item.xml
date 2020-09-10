@@ -6,23 +6,15 @@
     android:layoutDirection="rtl"
     android:gravity="center">
 
-
-
     <RelativeLayout
         android:layout_above="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center">
-    <LinearLayout
-        android:layout_marginTop="@dimen/margin4"
-        android:layout_marginLeft="@dimen/margin2"
-        android:layout_marginRight="@dimen/margin2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginLeft="@dimen/margin2"
+            android:layout_marginRight="@dimen/margin2"
+            android:layout_alignParentLeft="true"
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
@@ -32,6 +24,15 @@
             android:layout_gravity="left"
             android:textColor="@color/white"
             tools:ignore="RtlHardcoded"/>
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin4"
+        android:layout_marginLeft="@dimen/margin2"
+        android:layout_marginRight="@dimen/margin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -2,11 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/margin2"
+    >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin4">
 
         <AutoCompleteTextView
             android:id="@+id/acc_no"
@@ -15,10 +18,14 @@
             android:hint="رقم الحساب"
 
             android:imeOptions="actionDone"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="@dimen/body1"
+            android:gravity="right"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/margin4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,21 +35,29 @@
             android:layout_height="wrap_content"
             android:hint="اسم صاحب الحساب "
             android:imeOptions="actionDone"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="@dimen/body1"
+            android:gravity="right" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/margin4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/note_edt_bg"
+        android:padding="@dimen/margin2">
 
         <AutoCompleteTextView
             android:id="@+id/notes"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:hint="ملاحظة "
             android:imeOptions="actionDone"
-           />
+            android:textSize="@dimen/body1"
+            android:gravity="right"
+            android:background="@android:color/transparent"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
