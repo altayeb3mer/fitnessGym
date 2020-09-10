@@ -4,10 +4,19 @@
     <item android:drawable="@drawable/img_splash" />
     <item android:drawable="@drawable/img_splash2" />
     <item
-        android:bottom="@dimen/splashLogoMargin">
-        <bitmap
-            android:gravity="bottom"
-            android:src="@drawable/logo"
-            />
+        android:gravity="center_horizontal|bottom"
+        android:bottom="50dp"
+        android:height="40dp"
+        android:width="120dp"
+        android:drawable="@drawable/logo"
+        >
+
     </item>
+<!--    <item-->
+<!--        android:bottom="@dimen/splashLogoMargin">-->
+<!--        <bitmap-->
+<!--            android:gravity="bottom"-->
+<!--            android:src="@drawable/logo"-->
+<!--            />-->
+<!--    </item>-->
 </layer-list>
