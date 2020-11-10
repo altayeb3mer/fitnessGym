@@ -53,10 +53,15 @@ public class AdapterClasses extends RecyclerView.Adapter<AdapterClasses.ViewHold
         holder.textView_couch.setText("المدرب : " + " " + item.getCouch());
 
 
-        Picasso
-                .with(activity)
-                .load(item.getImg()).placeholder(R.drawable.rec1_sample)
-                .into(holder.imageView);
+        try {
+            Picasso
+                    .with(activity)
+                    .load(item.getImg()).placeholder(R.drawable.rec1_sample)
+                    .into(holder.imageView);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 //        Glide.with(activity).load("").into(holder.imageView);
 

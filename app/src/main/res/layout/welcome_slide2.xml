@@ -21,8 +21,10 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <ImageView
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_width="match_parent"
                     android:src="@drawable/logo"
-                    android:layout_width="wrap_content"
                     android:layout_height="120dp"/>
                 <TextView
                     android:layout_width="wrap_content"
